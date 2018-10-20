@@ -1,5 +1,7 @@
 # frontEnd
 
+开发人员一定要戳[README-active-fe](./active-fe/README.md)
+
 ```
 //
 //                       _oo0oo_

@@ -1,5 +1,11 @@
 # active-fe
 
+# 注意
+
+本项目使用的脚手架版本为[Vue-CLI3](https://cli.vuejs.org/zh/)，憋弄错版本。
+
+# Setup
+
 ## Project setup
 ```
 npm install
