@@ -5,10 +5,20 @@ import App from './App'
 import router from './router' // import vue-router instant
 import store from './store/index' // import Vuex instant
 
+// import jquery from file
+import '@/assets/jquery'
+// import bootstrap 有点问题，不要全局引入，应该在文件内引入
+// import 'bootstrap/bootstrap.js'
+// import 'bootstrap/bootstrap.css'
+
 // import element ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
+
+// import vue-particles
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 
 Vue.config.productionTip = true
 

@@ -1,10 +1,8 @@
 <template>
-  <div id="Login">
-    这里是测试用的啦
-    <p>已登录：{{isLogged}}</p>
 
+  <div id="Login">
     <div class="centerPage">
-      <el-card style="width:350px" align="left">
+      <el-card style="width:350px;left: 20%" align="left">
 
         <div slot="header" class="clearfix">
           <h2>
@@ -20,27 +18,26 @@
           </h2>
         </div>
 
-        <el-form ref="form" :model="form">
+        <el-form ref="form" :model="form" :rules="rules">
 
-          <el-form-item prop="user">
+          <el-form-item prop="passport">
             <el-input type="text" v-model="form.passport" placeholder="用户名/邮箱/手机号"></el-input>
           </el-form-item>
 
           <el-form-item prop="password">
             <el-input type="password" v-model="form.password" placeholder="密码"></el-input>
-            <router-link to="/">
+          </el-form-item>
+          <router-link to="/passwordForget">
               <el-button type="text">
-                忘记密码？//todo
+                忘记密码？
               </el-button>
             </router-link>
-          </el-form-item>
-
           <el-form-item>
             <el-button type="primary" @click="handle_submit">登陆</el-button>
           </el-form-item>
-
         </el-form>
       </el-card>
+      <vue-particles color="#dedede">  </vue-particles>
     </div>
   </div>
 </template>
@@ -57,35 +54,54 @@ export default {
       form: {
         passport: '',
         password: ''
+      },
+      rules: {
+        passport: [
+          { required: true, message: '请输入用户名/邮箱/手机号', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' }
+        ]
       }
     }
   },
 
   methods: {
     handle_submit() {
-      request_login(this.form)
-        .then(info => {
-          if (info) {
-            this.$store.commit('SET_USERINFO', info) // save user information
-            this.$store.commit('TOGGLE_LOGIN') // change login status
-            // send success message
-            this.$message({
-              message: '登陆成功',
-              type: 'success',
-              showClose: true
-            })
-            this.$router.push('/')
-          } else {
-            // send fail message
-            this.$message({
-              message: '登陆失败',
-              type: 'error',
-              showClose: true
-            })
-            console.log("error! login.vue");
-          }
-        })
+      console.log('click login');
 
+      this.$refs['form'].validate(
+        (valid) => {
+          if (valid) {
+            request_login(this.form)
+              .then(res => {
+                this.$store.commit('SET_USERINFO', res.data) // save user information
+                this.$store.commit('TOGGLE_LOGIN') // change login status
+                // send success message
+                this.$message({
+                  message: '登陆成功',
+                  type: 'success',
+                  showClose: true
+                })
+                this.$router.push('/')
+                console.log(this.$store.state.userInfo);
+              }).catch(e => {
+                // send fail message
+                this.$message({
+                  message: '登陆失败',
+                  type: 'error',
+                  showClose: true
+                })
+                console.log("error! login.vue", e.response.data);
+              })
+          } else {
+            this.$alert('请正确输入', '警告', {
+              confirmButtonText: '确定',
+              type: 'warning'
+            })
+          }
+        }
+      )
     }
   },
 
@@ -98,13 +114,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .centerPage {
-  /*垂直居中*/
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 40%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -100px;
+  padding-top: 5%;
+  padding-left: 35%;
 }
 </style>

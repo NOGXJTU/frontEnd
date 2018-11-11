@@ -11,8 +11,8 @@ Vue.use(Vuex)
 // global states
 const state = {
   // 默认测试数据
-  isLogged: true,
-  userInfo: { "id": "5b4403c9c9e77c0001b6d012", "meta": {}, "username": "qweasdzxc", "name": "二狗子", "email": "test@126.com", "phone": "12345678909", "description": "", "school": "西安交通大学大学", "avatar": "", "activitesId": [], "superUser": false }
+  isLogged: false,
+  userInfo: {}
 }
 
 export default new Vuex.Store({

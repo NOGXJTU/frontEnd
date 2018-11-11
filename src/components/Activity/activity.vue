@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="header"></div><!-- 空（已完成，模板） -->
+    <div class="header"></div>
+    <!-- 空（已完成，模板） -->
     <div class="main">
       <div class="activity" style="width: 70%; float: left">
         <div class="breadcrumb">
@@ -12,30 +13,35 @@
         <div class="screening-box">
           <p class="status-chooser">
             <el-button type="primary">活动类型：</el-button>
-            <el-button >文化课</el-button>
-            <el-button >兴趣课</el-button>
-            <el-button >思想沙龙</el-button>
-            <el-button >公益晚会</el-button>
-            <el-button >其他</el-button>
+            <el-button>文化课</el-button>
+            <el-button>兴趣课</el-button>
+            <el-button>思想沙龙</el-button>
+            <el-button>公益晚会</el-button>
+            <el-button>其他</el-button>
           </p>
           <p class="time-chooser">
             <el-button type="primary">活动时间：</el-button>
-            <el-button >2016</el-button>
-            <el-button >2017</el-button>
-            <el-button >2018</el-button>
-
+            <el-button>2016</el-button>
+            <el-button>2017</el-button>
+            <el-button>2018</el-button>
           </p>
         </div>
-        <div class="activity-list" v-for="o in 4" :key="o">
-          <el-card class="box-card">
-            <div slot="header" class="clearfix">
-              <span>活动名称</span>
-            </div>
-            <div >
-              {{ '活动' + o}}
-            </div>
-          </el-card>
+
+        <div class="activity-list" v-for="activity in activities" :key="activity.id">
+          <div @click="$router.push('/activity/'+activity.id)">
+            <el-card class="box-card" >
+              <div slot="header" class="clearfix">
+                <a @click="$router.push('/activity/'+activity.id)" style="text-decoration: none">活动名称：{{activity.name}}</a>
+              </div>
+              <div>
+                活动时间：{{activity.beginTime}}
+                <br> {{activity.description}}
+              </div>
+            </el-card>
+          </div>
+
         </div>
+
       </div>
       <div class="right-bar" style="width:auto; float: right">
         <div class="hot-activities">
@@ -58,17 +64,53 @@
         </div>
       </div>
     </div>
-    <div class="footer"></div><!-- 空（已完成，模板） -->
+    <div class="footer"></div>
+    <!-- 空（已完成，模板） -->
   </div>
 </template>
 
 <script>
+import { get_all_unfinished_activity_info } from '../../api/api.js'
+
 export default {
   name: 'activity',
   data() {
     return {
-      msg: '这里是activity'
+      msg: '这里是activity',
+      activities: [],
+      activity_show: []
     }
+  },
+  methods: {
+    // 获取所有未完成的活动信息
+    get_activity() {
+      get_all_unfinished_activity_info()
+        .then(res => {
+          console.log(res.data)
+          this.activities = res.data
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    },
+    // set_activity_status(){
+    //
+    //   for(i = activity; i < this.activities.size ; i++){
+    //     this.activity_show.append({name:i.id,show:true})
+    // }
+    // },
+    // classify_activity(activityType){
+    //   for(i = 0; i < this.activities.size ; i++){
+    //     if (i.type() != activityType){
+    //       this.activity_show[i].show = false;
+    //     }
+    //   }
+    // },
+  },
+
+  mounted() {
+    this.get_activity()
+    // this.set_activity_status()
   }
 }
 </script>

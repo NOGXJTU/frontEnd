@@ -2,20 +2,23 @@
   <div class="hello">
     <el-container>
       <el-aside width="200px">
-        <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-          <el-menu-item index="1">
+        <el-menu default-active="1" class="el-menu-vertical-demo" @select="change_component">
+          <el-menu-item index="basic">
             <i class="el-icon-menu"></i>
             <span slot="title">基本信息</span>
           </el-menu-item>
-          <el-menu-item index="2">
+          <el-menu-item index="activity">
             <i class="el-icon-document"></i>
             <span slot="title">我的活动</span>
+          </el-menu-item>
+          <el-menu-item index="confirm" v-show="">
+            <i class="el-icon-document"></i>
+            <span slot="title">活动审批</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
       <el-container>
         <el-main height="">
-          主要内容:
           <component :is="componentName"></component>
         </el-main>
       </el-container>
@@ -25,12 +28,40 @@
 </template>
 
 <script>
+import infoActivity from './info-activity'
+import infoBasic from './info-basic'
+import activityConfirm from './activity_confirm'
+
 export default {
   name: 'user',
   data() {
     return {
-      msg: '这里是user'
+      componentName: 'infoBasic'
     }
+  },
+
+  methods: {
+    change_component(key) {
+      switch (key) {
+        case 'basic':
+          this.componentName = 'infoBasic'
+          break
+        case 'activity':
+          this.componentName = 'infoActivity'
+          break
+        case 'confirm':
+          this.componentName = 'activityConfirm'
+          break
+        default:
+          break
+      }
+    }
+  },
+
+  components: {
+    infoActivity,
+    infoBasic,
+    activityConfirm
   }
 }
 </script>

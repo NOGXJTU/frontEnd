@@ -13,15 +13,18 @@
       </el-container>
     </el-container>
   </div>
+  <!--<organization-register></organization-register>-->
 </template>
 
 <script>
 import navbar from '@/components/navbar'
+// import organizationRegister from './components/organization/register'
 
 export default {
   name: 'App',
   components: {
-    navbar
+    navbar,
+    // organizationRegister
   }
 }
 </script>
