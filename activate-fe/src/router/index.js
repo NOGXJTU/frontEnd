@@ -1,28 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import components
-import home from '@/components/home'
+
 import activity from '@/components/Activity/activity'
 import forum from '@/components/Forum/forum'
-
-// import resource from '../components/Resource/resource'
-// import resourceVideoList from '../components/Resource/resouce-video-list'
-// import resourceKnowledge from '../components/Resource/resource-knowleage'
-// import resourceQuestionType from '../components/Resource/resource-questionType'
-// import resourceSubjectDirect from '../components/Resource/resource-subjectDirect'
-// import resourceVideo from '../components/Resource/resource-video'
-// import resourceExperience from '../components/Resource/resource-experience'
-// import resourceSchool from '../components/Resource/resource-school'
-// import resourceSchoolSubject from '../components/Resource/resource-schoolSubject'
 
 import user from '../components/User/user'
 import login from '../components/login'
 import register from '../components/register'
 import NotFind from '../components/not-find'
-import about from '../components/about'
 import passwordModify from '../components/User/password-modify'
 import passwordForget from '../components/User/password-forget'
-import regulation from '../components/Regulation/regulation'
 import activityInfo from '../components/Activity/activity-info'
 import infoOthers from '../components/User/info-others'
 import admin from '../components/Admin/admin'
@@ -45,6 +32,11 @@ import resource from '@/views/resource/index'
 //资源二级界面
 import VideoPlayer from '@/views/resource/secondary/VideoPlayer'
 import DetailsList from '@/views/resource/secondary/DetailsList'
+
+//关于页面
+import About from '@/views/about/About'
+//章程页面
+import Regulation from '@/views/regulation/index'
 export default new Router({
   routes: [{
     path: '/',
@@ -105,12 +97,12 @@ export default new Router({
   {
     path: '/about',
     name: 'About',
-    component: about
+    component: About
   },
   {
     path: '/regulation',
     name: 'Regulation',
-    component: regulation
+    component: Regulation
   },
   {
     path: '/404',
@@ -140,41 +132,6 @@ export default new Router({
     name: 'PasswordForget',
     component: passwordForget
   },
-  // {
-  //   path: '/resource/resourceKnowledge',
-  //   name: 'resourceKnowledge',
-  //   component: resourceKnowledge
-  // },
-  // {
-  //   path: '/resource/resourceQuestionType',
-  //   name: 'resourceQuestionType',
-  //   component: resourceQuestionType
-  // },
-  // {
-  //   path: '/resource/resourceSubjectDirect',
-  //   name: 'resourceSubjectDirect',
-  //   component: resourceSubjectDirect
-  // },
-  // {
-  //   path: '/resource/resourceVideoList',
-  //   name: 'resourceVideoList',
-  //   component: resourceVideoList
-  // },
-  // {
-  //   path: '/resource/resourceExperience',
-  //   name: 'resourceExperience',
-  //   component: resourceExperience
-  // },
-  // {
-  //   path: '/resource/resourceSchool',
-  //   name: 'resourceSchool',
-  //   component: resourceSchool
-  // },
-  // {
-  //   path: '/resource/resourceSchoolSubject',
-  //   name: 'resourceSchoolSubject',
-  //   component: resourceSchoolSubject
-  // },
   {
     path: '/activityConfirm',
     name: 'activityConfirm',

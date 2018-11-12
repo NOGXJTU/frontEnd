@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <vue-particles class="lizi"></vue-particles>
     <Navbar></Navbar>
     <router-view></router-view>
     <Footer></Footer>
@@ -20,5 +21,11 @@ export default {
 </script>
 
 <style>
-
+.lizi {
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
 </style>

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <div class="header"></div>
-    <!-- 空（已完成，模板） -->
     <div class="main">
       <div class="activity" style="width: 70%; float: left">
         <div class="breadcrumb">
@@ -26,7 +24,6 @@
             <el-button>2018</el-button>
           </p>
         </div>
-
         <div class="activity-list" v-for="activity in activities" :key="activity.id">
           <div @click="$router.push('/activity/'+activity.id)">
             <el-card class="box-card" >
@@ -39,9 +36,7 @@
               </div>
             </el-card>
           </div>
-
         </div>
-
       </div>
       <div class="right-bar" style="width:auto; float: right">
         <div class="hot-activities">
@@ -64,8 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="footer"></div>
-    <!-- 空（已完成，模板） -->
+    <div style="clear: both;"></div>
   </div>
 </template>
 
@@ -93,24 +87,10 @@ export default {
           console.log(e)
         })
     },
-    // set_activity_status(){
-    //
-    //   for(i = activity; i < this.activities.size ; i++){
-    //     this.activity_show.append({name:i.id,show:true})
-    // }
-    // },
-    // classify_activity(activityType){
-    //   for(i = 0; i < this.activities.size ; i++){
-    //     if (i.type() != activityType){
-    //       this.activity_show[i].show = false;
-    //     }
-    //   }
-    // },
   },
 
   mounted() {
     this.get_activity()
-    // this.set_activity_status()
   }
 }
 </script>

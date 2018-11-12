@@ -1,28 +1,26 @@
 <template>
-  <div>
+  <div class="regulation-index">
     <el-container>
       <el-aside width="200px" class="sidebar">
         <!-- Aside content -->
         <ul class="menu-root">
           <li v-for="(title, index) in titles" :key="index" :class="{active : isActive[index]}">
             <div @click="handle_content(index),toggle_active(index)" class="item">{{title}}</div>
-            <!-- <a ></a> -->
           </li>
         </ul>
       </el-aside>
       <el-container>
         <el-main>
           <!-- Main content -->
-          <regulationContent :source="passage"></regulationContent>
+          <Content :source="passage"></Content>
         </el-main>
       </el-container>
     </el-container>
-
   </div>
 </template>
 
 <script>
-import regulationContent from "./regulation-content";
+import Content from "./Content";
 import Cha0 from "@/assets/regulations/Cha0.md";
 import Cha1 from "@/assets/regulations/Cha1.md";
 import Cha2 from "@/assets/regulations/Cha2.md";
@@ -35,7 +33,7 @@ import Cha7 from "@/assets/regulations/Cha7.md";
 // import vueMarkdown from 'vue-markdown'
 
 export default {
-  name: "regulation",
+  name: "Regulation",
   data() {
     return {
       passage: Cha0,
@@ -54,11 +52,8 @@ export default {
       isActive: [true, false, false, false, false, false, false, false]
     };
   },
-
   methods: {
     handle_content(index) {
-      console.log(index);
-
       switch (index) {
         case 0:
           this.passage = Cha0;
@@ -88,7 +83,6 @@ export default {
           break;
       }
     },
-    // 切换当前激活的目录项
     toggle_active(index) {
       for (let i = 0; i < this.isActive.length; i++) {
         this.$set(this.isActive, i, false);
@@ -96,44 +90,43 @@ export default {
       this.$set(this.isActive, index, true);
     }
   },
-
   components: {
-    // vueMarkdown,
-    regulationContent
+    Content
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.sidebar {
-  border-right: 1px;
-}
+  .sidebar {
+    border-right: 1px;
+  }
 
-.menu-root * {
-  font-size: 110%;
-  color: #99cc99;
-  list-style-type: none;
-  margin: 0;
-  line-height: 1.5em;
-  padding-left: 0em;
-}
+  .menu-root * {
+    font-size: 110%;
+    color: #99cc99;
+    list-style-type: none;
+    margin: 0;
+    line-height: 1.5em;
+    padding-left: 0em;
+  }
 
-.menu-root li {
-  display: block;
-  padding-bottom: 5px;
-  padding: 10px;
-}
+  .menu-root li {
+    display: block;
+    padding-bottom: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
 
-.menu-root li:hover {
-  background-color: rgba(57, 146, 235, 0.07);
-}
+  .menu-root li:hover {
+    background-color: rgba(57, 146, 235, 0.07);
+  }
 
-.active {
-  background-color: rgba(57, 146, 235, 0.07);
-}
+  .active {
+    background-color: rgba(57, 146, 235, 0.07);
+  }
 
-.item {
-  text-align: center;
-}
+  .item {
+    text-align: center;
+  }
 </style>
