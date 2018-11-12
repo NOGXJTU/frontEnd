@@ -195,3 +195,8 @@ export const organization_register = params => {
 export const get_organization_by_Id = params => {
   return axios.get('/organization/{id}')
 }
+
+//活动申请请求发送
+export const activity_apply = params => {
+  return axios.post('/activity/apply')
+}

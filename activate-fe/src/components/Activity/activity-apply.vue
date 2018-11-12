@@ -9,16 +9,16 @@
       </div>
       <div class="activity-apply-card">
         <el-card>
-          <el-form label-width="100px">
+          <el-form ref="form" :model="form" label-width="100px">
             <el-form-item label="活动名称">
-              <el-input></el-input>
+              <el-input type="text" v-model="form.name" placeholder=""></el-input>
             </el-form-item>
             <el-form-item label="申请组织">
-              <el-input></el-input>
+              <el-input type="text" v-model="form.organizationId" placeholder=""></el-input>
             </el-form-item>
             <el-form-item label="活动队长">
               <!--先放一放，问题很大-->
-              <el-input></el-input>
+              <el-input type="text" v-model="form.leaderId" placeholder=""></el-input>
             </el-form-item>
             <el-form-item label="活动类型">
               <el-select v-model="value" placeholder="请选择">
@@ -33,20 +33,20 @@
             <el-form-item label="起始时间">
               <div class="clock">
                 <el-date-picker
-                  v-model="startTime"
+                  v-model="form.beginTime"
                   type="date"
                   placeholder="选择日期">
                 </el-date-picker>
               </div>
             </el-form-item>
             <el-form-item label="持续时间" >
-              <el-input placeholder="请按格式输入，例：'15天'"></el-input>
+              <el-input type="text" v-model="form.lasting" placeholder="请按格式输入，例：'15天'"></el-input>
             </el-form-item>
             <el-form-item label="所在地点">
               <el-input ></el-input>
             </el-form-item>
             <el-form-item label="活动简介">
-              <el-input type="textarea":rows="3" ></el-input>
+              <el-input type="textarea":rows="3" v-model="form.description"></el-input>
             </el-form-item>
             <el-form-item label="活动起始图片">
               <el-upload
@@ -64,7 +64,7 @@
               </el-upload>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" >提交申请</el-button>
+              <el-button type="primary" @click="handle_register">提交申请</el-button>
             </el-form-item>
           </el-form>
         </el-card>
@@ -74,7 +74,9 @@
 </template>
 
 <script>
-    export default {
+  import {activity_apply} from "../../api/api";
+
+  export default {
         name: "activity-apply",
       data(){
           return {
@@ -96,9 +98,70 @@
             }],
             value: '',
             startTime:'',
+            fileList:[{
+              name:'default.jpg',
+              url:'https://pic1.zhimg.com/80/v2-775a3c94e42570b5515567afb54f0504_hd.jpg'
+            }
+            ],
+            form:{
+              name:'',
+              organizationId:'',
+              ownerId:'',
+              type:this.value,
+              beginTime:'',
+              lasting:'',
+              place:'',
+              description:'',
+              picUrl:this.fileList.url,
+            },
 
           }
-      }
+      },
+    methods:{
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
+      },
+      handleExceed(files, fileList) {
+        this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+      },
+      beforeRemove(file, fileList) {
+        return this.$confirm(`确定移除 ${ file.name }？`);
+      },
+      handle_register() {
+        this.$refs['form'].validate(
+          (valid) => {
+            if (valid) {
+              activity_apply(this.form)
+                .then(res => {
+                  // send success message
+                  this.$message({
+                    message: '申请成功！请等待管理员审核',
+                    type: 'success',
+                    showClose: true
+                  })
+                  this.$router.push('/activity')
+                }).catch(e => {
+                // send fail message
+                this.$message({
+                  message: '申请失败',
+                  type: 'error',
+                  showClose: true
+                })
+                console.log("error! activity-apply.vue", e.response);
+              })
+            } else {
+              this.$alert('请正确输入', '警告', {
+                confirmButtonText: '确定',
+                type: 'warning'
+              })
+            }
+          }
+        )
+      },
+    },
 
     }
 </script>
