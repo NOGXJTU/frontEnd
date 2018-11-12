@@ -187,11 +187,11 @@ export default new Router({
       name: 'organization',
       component: organization
     },
-  {
-    path: '/organization/:organizationId',
-    name: 'organizationInfo',
-    component: organizationInfo
-  },
+  // {
+  //   path: '/organization/:organizationId',
+  //   name: 'organizationInfo',
+  //   component: organizationInfo
+  // },
   {
     path: '/organization/organizationRegister',
     name: 'organizationRegister',

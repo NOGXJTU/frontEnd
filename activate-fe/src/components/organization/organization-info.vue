@@ -13,12 +13,13 @@
           <div class="img-size"><img src="https://dummyimage.com/600x400/000/fff" height="300" width="300"></div>
         </el-aside>
         <el-main class="organization-info-right">
-          <div class="organization-title word-style" style="font-size: xx-large;">组织名称</div>
+          <div class="organization-title word-style" style="font-size: xx-large;">{{organization.name}}</div>
           <div class="organization-time word-style" style="font-size: x-large;">
-            组织负责人：
+            组织负责人：{{organization.leaderId}}
           </div>
           <div class="word-style" style="font-size: large; ">
-            简介: <br></br> 我们可能有时候自己不够自信或者地看自己，只是因为自己没有跳出自己的思维框架，从而不能正确看待自己，因此便会生出自己不行的这种看法。就有一程序员发生了这么个事，因公司给价太高而不敢去上班，但是又舍不得高薪，因而自己很焦灼。
+            简介: <br></br>
+            {{organization.description}}
           </div>
         </el-main>
       </el-container>
@@ -30,8 +31,29 @@
 import {get_organization_by_Id} from "../../api/api";
 
 export default {
-        name: "organization-info",
+  name: "organization-info",
+  data(){
+    return{
+      organization:'',
+      members:this.organization.member,
     }
+  },
+  methods:{
+    get_organization_Info(){
+      get_organization_by_Id()
+        .then(res => {
+          this.organization = res.data
+        })
+        .catch(e => {
+          console.log(e.response.data)
+        })
+}
+  },
+  mounted(){
+    this.get_organization_by_Id()
+  }
+
+}
 </script>
 
 <style scoped>
