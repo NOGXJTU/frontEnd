@@ -16,7 +16,7 @@
             <el-button>文化课</el-button>
             <el-button>兴趣课</el-button>
             <el-button>思想沙龙</el-button>
-            <el-button>公益晚会</el-button>
+            <el-button> </el-button>
             <el-button>其他</el-button>
           </p>
           <p class="time-chooser">
@@ -117,4 +117,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>

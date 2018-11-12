@@ -180,3 +180,18 @@ export const video_play = params => {
 export const video_list = params => {
   return axios.get('/example/example')
 }
+
+//获取所有组织信息
+export const get_all_organization = params => {
+  return axios.get('/organization/getAllMsg')
+}
+
+//组织注册表单提交
+export const organization_register = params => {
+  return axios.post('/organization/foundation/apply',params)
+}
+
+//根据ID获取组织信息
+export const get_organization_by_Id = params => {
+  return axios.get('/organization/{id}')
+}
