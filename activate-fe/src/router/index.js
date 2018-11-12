@@ -5,15 +5,15 @@ import home from '@/components/home'
 import activity from '@/components/Activity/activity'
 import forum from '@/components/Forum/forum'
 
-import resource from '../components/Resource/resource'
-import resourceVideoList from '../components/Resource/resouce-video-list'
-import resourceKnowledge from '../components/Resource/resource-knowleage'
-import resourceQuestionType from '../components/Resource/resource-questionType'
-import resourceSubjectDirect from '../components/Resource/resource-subjectDirect'
-import resourceVideo from '../components/Resource/resource-video'
-import resourceExperience from '../components/Resource/resource-experience'
-import resourceSchool from '../components/Resource/resource-school'
-import resourceSchoolSubject from '../components/Resource/resource-schoolSubject'
+// import resource from '../components/Resource/resource'
+// import resourceVideoList from '../components/Resource/resouce-video-list'
+// import resourceKnowledge from '../components/Resource/resource-knowleage'
+// import resourceQuestionType from '../components/Resource/resource-questionType'
+// import resourceSubjectDirect from '../components/Resource/resource-subjectDirect'
+// import resourceVideo from '../components/Resource/resource-video'
+// import resourceExperience from '../components/Resource/resource-experience'
+// import resourceSchool from '../components/Resource/resource-school'
+// import resourceSchoolSubject from '../components/Resource/resource-schoolSubject'
 
 import user from '../components/User/user'
 import login from '../components/login'
@@ -38,11 +38,18 @@ import organizationRegister from '../components/organization/organization-regist
 
 Vue.use(Router)
 
+//首页
+import index from '@/views/index/index'
+//资源页面
+import resource from '@/views/resource/index'
+//资源二级界面
+import VideoPlayer from '@/views/resource/secondary/VideoPlayer'
+import DetailsList from '@/views/resource/secondary/DetailsList'
 export default new Router({
   routes: [{
     path: '/',
-    name: 'Home',
-    component: home
+    name: 'index',
+    component: index
   },
   {
     path: '/admin',
@@ -70,9 +77,14 @@ export default new Router({
     component: resource
   },
   {
-    path: '/resource/resourceVideoList/:videoId',
-    name: 'ResourceVideo',
-    component: resourceVideo
+    path: '/resource/video/:videoId',
+    name: 'VideoPlayer',
+    component: VideoPlayer
+  },
+  {
+    path: '/resource/details',
+    name: 'DetailsList',
+    component: DetailsList
   },
   {
     path: '/user',
@@ -128,51 +140,51 @@ export default new Router({
     name: 'PasswordForget',
     component: passwordForget
   },
-  {
-    path: '/resource/resourceKnowledge',
-    name: 'resourceKnowledge',
-    component: resourceKnowledge
-  },
-  {
-    path: '/resource/resourceQuestionType',
-    name: 'resourceQuestionType',
-    component: resourceQuestionType
-  },
-  {
-    path: '/resource/resourceSubjectDirect',
-    name: 'resourceSubjectDirect',
-    component: resourceSubjectDirect
-  },
-  {
-    path: '/resource/resourceVideoList',
-    name: 'resourceVideoList',
-    component: resourceVideoList
-  },
-  {
-    path: '/resource/resourceExperience',
-    name: 'resourceExperience',
-    component: resourceExperience
-  },
-  {
-    path: '/resource/resourceSchool',
-    name: 'resourceSchool',
-    component: resourceSchool
-  },
-  {
-    path: '/resource/resourceSchoolSubject',
-    name: 'resourceSchoolSubject',
-    component: resourceSchoolSubject
-  },
+  // {
+  //   path: '/resource/resourceKnowledge',
+  //   name: 'resourceKnowledge',
+  //   component: resourceKnowledge
+  // },
+  // {
+  //   path: '/resource/resourceQuestionType',
+  //   name: 'resourceQuestionType',
+  //   component: resourceQuestionType
+  // },
+  // {
+  //   path: '/resource/resourceSubjectDirect',
+  //   name: 'resourceSubjectDirect',
+  //   component: resourceSubjectDirect
+  // },
+  // {
+  //   path: '/resource/resourceVideoList',
+  //   name: 'resourceVideoList',
+  //   component: resourceVideoList
+  // },
+  // {
+  //   path: '/resource/resourceExperience',
+  //   name: 'resourceExperience',
+  //   component: resourceExperience
+  // },
+  // {
+  //   path: '/resource/resourceSchool',
+  //   name: 'resourceSchool',
+  //   component: resourceSchool
+  // },
+  // {
+  //   path: '/resource/resourceSchoolSubject',
+  //   name: 'resourceSchoolSubject',
+  //   component: resourceSchoolSubject
+  // },
   {
     path: '/activityConfirm',
     name: 'activityConfirm',
     component: activityConfirm
   },
-    {
-      path: '/activityApply',
-      name: 'activityApply',
-      component: activityApply
-    },
+  {
+    path: '/activityApply',
+    name: 'activityApply',
+    component: activityApply
+  },
   {
     path: '/organization/organizationRegister',
     name: 'organizationRegister',

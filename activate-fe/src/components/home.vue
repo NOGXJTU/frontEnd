@@ -161,7 +161,6 @@
         </el-col>
       </el-row>
       </div>
-
     </div>
     <div class="contact-information">
       <div class="information">
@@ -430,7 +429,7 @@ export default {
     text-align: center;
   }
 
-  .footer-content {
+  . footer-content {
     margin: 50px 220px 0px 220px;
   }
 

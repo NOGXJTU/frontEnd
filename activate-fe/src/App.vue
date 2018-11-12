@@ -1,30 +1,20 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-container>
-        <el-header>
-          <!-- 导航栏 -->
-          <navbar></navbar>
-        </el-header>
-          <!-- 主体页面 -->
-        <el-main>
-          <router-view/>
-        </el-main>
-      </el-container>
-    </el-container>
+    <Navbar></Navbar>
+    <router-view></router-view>
+    <Footer></Footer>
   </div>
-  <!--<organization-register></organization-register>-->
 </template>
 
 <script>
-import navbar from '@/components/navbar'
-// import organizationRegister from './components/organization/register'
+import Navbar from '@/common/Navbar'
+import Footer from '@/common/Footer'
 
 export default {
   name: 'App',
   components: {
-    navbar,
-    // organizationRegister
+    Navbar,
+    Footer
   }
 }
 </script>
