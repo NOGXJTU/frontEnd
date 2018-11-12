@@ -200,3 +200,8 @@ export const get_organization_by_Id = params => {
 export const activity_apply = params => {
   return axios.post('/activity/apply')
 }
+
+//活动结束上传资料
+export const activity_finished_upload = params => {
+  return axios.post('/activity/finished/upload')
+}

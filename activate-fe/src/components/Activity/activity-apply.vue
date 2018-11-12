@@ -112,7 +112,7 @@
               lasting:'',
               place:'',
               description:'',
-              picUrl:this.fileList.url,
+              picUrl:this.fileList[0].url,
             },
 
           }

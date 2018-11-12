@@ -202,5 +202,6 @@ export default new Router({
     name: 'organizationList',
     component: organizationList
   },
+
   ]
 })

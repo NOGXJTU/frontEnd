@@ -63,7 +63,7 @@ export default {
               leaderId:'',
               location:'',
               description:'',
-              logoUrl:this.fileList.url,
+              logoUrl:this.fileList[0].url,
             },
             rules:{
               name: [
