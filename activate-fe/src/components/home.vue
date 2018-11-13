@@ -429,7 +429,7 @@ export default {
     text-align: center;
   }
 
-  . footer-content {
+  .footer-content {
     margin: 50px 220px 0px 220px;
   }
 
