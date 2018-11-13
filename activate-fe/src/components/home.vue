@@ -166,7 +166,7 @@
       <div class="information">
       <el-row :gutter="20">
         <el-col :span="8"><div class="grid-content bg-purple">
-          <el-row :type="flex" class="row-bg" justify="space-around">
+          <el-row type="flex" class="row-bg" justify="space-around">
             <el-col :span="8"><div class="grid-content bg-purple">
               <div class="contact-icon">
                 <img class="icon" src="../assets/img_home/contact3.png" alt="">
@@ -183,7 +183,7 @@
         </div>
         </el-col>
         <el-col :span="8"><div class="grid-content bg-purple">
-          <el-row :type="flex" class="row-bg" justify="space-around">
+          <el-row type="flex" class="row-bg" justify="space-around">
             <el-col :span="8"><div class="grid-content bg-purple">
               <div class="contact-icon">
                 <img class="icon" src="../assets/img_home/contact2.png" alt="">
@@ -200,7 +200,7 @@
         </div>
         </el-col>
         <el-col :span="8"><div class="grid-content bg-purple">
-          <el-row :type="flex" class="row-bg" justify="space-around">
+          <el-row type="flex" class="row-bg" justify="space-around">
             <el-col :span="8"><div class="grid-content bg-purple">
               <div class="contact-icon">
                 <img class="icon" src="../assets/img_home/contact3.png" alt="">
@@ -245,197 +245,195 @@ export default {
   data() {
     return {
       msg: "这里是主页"
-    }
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  scoped>
-  .el-main {
+.el-main {
+  text-align: center;
+}
 
-    text-align: center;
-  }
+.el-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
-  .el-row {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
+.el-col {
+  border-radius: 4px;
+}
 
-  .el-col {
-    border-radius: 4px;
-  }
+.bg-purple-light {
+  background: #e5e9f2;
+}
 
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
+.grid-content {
+  padding: 10px;
+  border-radius: 4px;
+  min-height: 6px;
+}
+.row-bg {
+  padding: 10px 0;
+}
 
-  .grid-content {
-    padding: 10px;
-    border-radius: 4px;
-    min-height: 6px;
-  }
-  .row-bg {
-    padding: 10px 0;
-  }
+.bottom {
+  margin-top: 4px;
+  line-height: 10px;
+}
 
-  .bottom {
-    margin-top: 4px;
-    line-height: 10px;
-  }
+.button {
+  padding: 0;
+  float: right;
+}
 
-  .button {
-    padding: 0;
-    float: right;
-  }
+.image {
+  width: 100%;
+  display: block;
+}
 
-  .image {
-    width: 100%;
-    display: block;
-  }
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
 
-  .clearfix:before,
-  .clearfix:after {
-      display: table;
-      content: "";
-  }
+.clearfix:after {
+  clear: both;
+}
 
-  .clearfix:after {
-      clear: both
-  }
+.intro {
+  margin-left: 150px;
+  margin-right: 150px;
+}
 
-  .intro {
-    margin-left: 150px;
-    margin-right: 150px;
-  }
+.intro-title {
+  font-size: 25px;
+  padding: 20px 25px 5px 25px;
+  margin-top: 40px;
+  color: #3dac0ac4;
+}
 
-  .intro-title {
-    font-size: 25px;
-    padding: 20px 25px 5px 25px;
-    margin-top: 40px;
-    color: #3dac0ac4;
-  }
+.intro-content {
+  margin: 25px 20px;
+  text-align: left;
+  font-size: 14px;
+  color: #003366;
+}
 
-  .intro-content {
-    margin: 25px 20px;
-    text-align: left;
-    font-size: 14px;
-    color: #003366;
-  }
+.special {
+  margin: 20px 10px;
+}
 
-  .special {
-    margin: 20px 10px;
-  }
+.special .icon {
+  width: 45px;
+  height: 45px;
+}
 
-  .special .icon {
-    width: 45px;
-    height: 45px;
-  }
+.special-title {
+  font-size: 20px;
+  text-align: center;
+  padding: 8px;
+  color: #3dac0ac4;
+}
 
-  .special-title {
-    font-size: 20px;
-    text-align: center;
-    padding: 8px;
-    color: #3dac0ac4;
-  }
+.special-content {
+  margin-left: 60px;
+  padding-top: 12px;
+  font-size: 14px;
+  color: #003366;
+}
 
-  .special-content {
-    margin-left: 60px;
-    padding-top: 12px;
-    font-size: 14px;
-    color: #003366;
-  }
+.fl {
+  float: left;
+}
 
-  .fl {
-    float: left;
-  }
+.fr {
+  float: right;
+}
 
-  .fr {
-    float: right;
-  }
+.activity {
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 60px;
+}
 
-  .activity {
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-bottom: 60px;
-  }
+.activity .el-row {
+  margin-top: 0px;
+}
 
-  .activity .el-row {
-    margin-top: 0px;
-  }
+.top-activity {
+  margin-bottom: 12px;
+}
 
-  .top-activity {
-    margin-bottom: 12px
-  }
+.activity-title {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #3dac0ac4;
+}
 
-  .activity-title {
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #3dac0ac4;
-  }
+.map {
+  background-color: #003366;
+  min-height: 1px;
+}
 
-  .map {
-    background-color: #003366;
-    min-height: 1px;
-  }
+.content {
+  margin-left: 150px;
+  margin-right: 150px;
+}
 
-  .content {
-    margin-left: 150px;
-    margin-right: 150px;
-  }
+.chinese-map {
+  width: 70%;
+}
 
-  .chinese-map {
-    width: 70% ;
-  }
+.map-caption {
+  margin: 50px 60px;
+  color: rgb(241, 236, 250);
+}
 
-  .map-caption {
-    margin: 50px  60px ;
-    color: rgb(241, 236, 250);
-  }
+.map-caption-title {
+  font-size: 24px;
+}
 
-  .map-caption-title {
-    font-size: 24px;
-  }
+.contact-information {
+  margin-left: 100px;
+  margin-right: 100px;
+}
 
-  .contact-information {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
+.contact-icon {
+  padding: 2px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #3dac0ac4;
+}
 
-  .contact-icon {
-    padding: 2px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #3dac0ac4;
-  }
+.contact-icon .icon {
+  margin: 10px;
+  width: 60%;
+}
 
-  .contact-icon .icon {
-    margin: 10px;
-    width: 60%;
-  }
+.contact-infor {
+  text-align: left;
+  margin: 20px 50px 20px 0px;
+}
 
-  .contact-infor {
-    text-align: left;
-    margin: 20px 50px 20px 0px ;
-  }
+.mail {
+  margin: 0px 50px 20px 0px;
+}
 
-  .mail {
-    margin: 0px 50px 20px 0px ;
-  }
+.el-footer {
+  background-color: #3dac0ac4;
+  color: rgb(252, 252, 252);
+  text-align: center;
+}
 
-  .el-footer {
-    background-color: #3dac0ac4;
-    color: rgb(252, 252, 252);
-    text-align: center;
-  }
+.footer-content {
+  margin: 50px 220px 0px 220px;
+}
 
-  .footer-content {
-    margin: 50px 220px 0px 220px;
-  }
-
-  .fl-content {
-    margin-right: 40px;
-    font-size: 18px;
-  }
-
+.fl-content {
+  margin-right: 40px;
+  font-size: 18px;
+}
 </style>
