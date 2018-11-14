@@ -2,10 +2,12 @@ import { expect } from "chai";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/components/navbar.vue";
 import Vuex from "vuex";
+import VueRouter from "vue-router";
 import "../util";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(VueRouter);
 
 describe("navbar.vue", () => {
   const mocks = {
