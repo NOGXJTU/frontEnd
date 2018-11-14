@@ -3,7 +3,6 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/components/navbar.vue";
 import Vuex from "vuex";
 import VueRouter from "vue-router";
-import flushPromises from "flush-promises";
 import "../util";
 
 const localVue = createLocalVue();
@@ -32,7 +31,6 @@ describe("navbar.vue", () => {
 
   it("仅在登陆后显示登出", () => {
     const wrapper = wrapperInstant(true);
-
     expect(wrapper.find('[index="log"]').exists()).to.not.be.ok;
     expect(wrapper.find('[index="logout"]').exists()).to.be.ok;
   });
@@ -52,7 +50,7 @@ describe("navbar.vue", () => {
     expect(wrapper.find('[index="resource"]').exists()).to.be.ok;
   });
 
-  it("显示组织", () => {
+  it.skip("显示组织", () => {
     const wrapper = wrapperInstant(false);
     expect(wrapper.find('[index="organization"]').exists()).to.be.ok;
   });
@@ -71,6 +69,4 @@ describe("navbar.vue", () => {
     const wrapper = wrapperInstant(false);
     expect(wrapper.find('[index="regulation"]').exists()).to.be.ok;
   });
-
-  it("点击登出后调用登出处理方法", () => {});
 });
