@@ -1,7 +1,11 @@
 import { expect } from "chai";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/components/navbar.vue";
+import Vuex from "vuex";
 import "../util";
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("navbar.vue", () => {
   const mocks = {
@@ -11,7 +15,7 @@ describe("navbar.vue", () => {
       }
     }
   };
-  const wrapper = shallowMount(Navbar, { mocks: mocks });
+  const wrapper = shallowMount(Navbar, { localVue, mocks });
 
   it("仅在未登录时显示登陆/注册", () => {
     expect(wrapper.find('[index="log"]').exists()).to.be.ok;
@@ -26,7 +30,7 @@ describe("navbar.vue", () => {
         }
       }
     };
-    const wrapper = shallowMount(Navbar, { mocks: mocks });
+    const wrapper = shallowMount(Navbar, { localVue, mocks });
 
     expect(wrapper.find('[index="log"]').exists()).to.not.be.ok;
     expect(wrapper.find('[index="logout"]').exists()).to.be.ok;
