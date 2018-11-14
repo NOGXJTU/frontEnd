@@ -3,6 +3,7 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/components/navbar.vue";
 import Vuex from "vuex";
 import VueRouter from "vue-router";
+import flushPromises from "flush-promises";
 import "../util";
 
 const localVue = createLocalVue();
@@ -64,5 +65,15 @@ describe("navbar.vue", () => {
 
   it("显示章程", () => {
     expect(wrapper.find('[index="regulation"]').exists()).to.be.ok;
+  });
+
+  it("点击主页后正确跳转", () => {
+    const homeItem = wrapper.find('[index="home"]');
+    homeItem.trigger("click");
+    wrapper.vm.$nextTick(() => {
+      expect(wrapper.find(".intro-title").exists()).to.be.ok;
+      console.log(wrapper.vm.$route.path);
+      done();
+    });
   });
 });
