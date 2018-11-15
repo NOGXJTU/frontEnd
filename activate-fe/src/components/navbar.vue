@@ -10,6 +10,7 @@
       <el-menu-item index="resource" @click="$router.push('/resource')">
         资源
       </el-menu-item>
+      <!-- todo: modify index -->
       <el-menu-item index="forum" @click="$router.push('/forum')">
         组织
       </el-menu-item>
