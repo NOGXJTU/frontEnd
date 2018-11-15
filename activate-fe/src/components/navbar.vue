@@ -16,56 +16,58 @@
       <el-menu-item index="user" @click="$router.push('/user')">
         个人中心
       </el-menu-item>
+      <el-menu-item index="about" @click="$router.push('/about')" style="float: right">
+        关于
+      </el-menu-item>
+      <el-menu-item index="regulation" @click="$router.push('/regulation')" style="float: right">
+        章程
+      </el-menu-item>
       <el-menu-item v-if="!this.isLogged" index="log" @click="$router.push('/login')" style="float: right">
         登陆/注册
       </el-menu-item>
       <el-menu-item v-if="this.isLogged" index="logout" @click="handle_logout" style="float: right">
         登出
       </el-menu-item>
-      <el-menu-item index="regulation" @click="$router.push('/regulation')" style="float: right">
-        章程
-      </el-menu-item>
-      <el-menu-item index="about" @click="$router.push('/about')" style="float: right">
-        关于
-      </el-menu-item>
+
     </el-menu>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { logout } from '../api/api.js'
+import { mapState } from "vuex";
+import { logout } from "../api/api.js";
 
 export default {
-  name: 'navbar',
+  name: "navbar",
   data() {
     return {
-      activeIndex: '1'
-    }
+      activeIndex: "1"
+    };
   },
   methods: {
     handle_logout() {
-      this.$store.commit('TOGGLE_LOGOUT') // set log out
-      this.$store.commit('SET_USERINFO', {}) // clear user information
+      this.$store.commit("TOGGLE_LOGOUT"); // set log out
+      this.$store.commit("SET_USERINFO", {}); // clear user information
       // use put method to log out
       logout()
         .then(res => {
           this.$message({
-            message: '注销成功',
-            type: 'success',
+            message: "注销成功",
+            type: "success",
             showClose: true
-          })
-          this.$router.push('/')
+          });
+          this.$router.push("/");
           console.log(this.$store.state.userInfo);
-        }).catch(e => {
-          console.log("error! login.vue", e.response.data);
         })
+        .catch(e => {
+          console.log("error! login.vue", e.response.data);
+        });
     }
   },
   computed: {
-    ...mapState(['isLogged'])
+    ...mapState(["isLogged"])
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
