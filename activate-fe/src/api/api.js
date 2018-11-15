@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // config axios
-axios.defaults.baseURL = 'http://45.40.196.220:8080'
+axios.defaults.baseURL = 'http://suilin.top:8088'
 axios.defaults.withCredentials = true
 axios.defaults.headers = {
   'Content-Type': 'application/json'

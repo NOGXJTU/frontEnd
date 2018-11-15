@@ -1,13 +1,10 @@
 <template>
   <div class="login-container">
     <p>已登录：{{isLogged}}</p>
-
     <el-form class="login-form" autoComplete="on" :model="form" :rules="rules" ref="form" label-position="left">
-
       <div class="title-container">
         <h3 class="title">登陆</h3>
       </div>
-
       <el-form-item prop="passport">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
@@ -24,11 +21,8 @@
           <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
-
       <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handle_submit">'login.logIn'</el-button>
-
     </el-form>
-
   </div>
 
 </template>
