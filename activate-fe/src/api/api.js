@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // config axios
-axios.defaults.baseURL = 'http://45.40.196.220:8080'
+axios.defaults.baseURL = 'http://suilin.top:8088'
 axios.defaults.withCredentials = true
 axios.defaults.headers = {
   'Content-Type': 'application/json'
@@ -179,4 +179,29 @@ export const video_play = params => {
 //获取所有视频
 export const video_list = params => {
   return axios.get('/example/example')
+}
+
+//获取所有组织信息
+export const get_all_organization = params => {
+  return axios.get('/organization/getAllMsg')
+}
+
+//组织注册表单提交
+export const organization_register = params => {
+  return axios.post('/organization/foundation/apply',params)
+}
+
+//根据ID获取组织信息
+export const get_organization_by_Id = params => {
+  return axios.get('/organization/{id}')
+}
+
+//活动申请请求发送
+export const activity_apply = params => {
+  return axios.post('/activity/apply')
+}
+
+//活动结束上传资料
+export const activity_finished_upload = params => {
+  return axios.post('/activity/finished/upload')
 }
