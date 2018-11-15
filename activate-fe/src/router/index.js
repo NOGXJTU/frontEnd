@@ -17,9 +17,13 @@ import activityConfirm from '../components/User/activity_confirm'
 
 //activity
 import activityApply from '../components/Activity/activity-apply'
+import activityEnd from '../components/Activity/activity-end'
 
 // organization
+import organization from '../components/organization/organization'
 import organizationRegister from '../components/organization/organization-register'
+import organizationInfo from '../components/organization/organization-info'
+import organizationList from '../components/organization/organization-list'
 
 //resource router
 
@@ -138,15 +142,43 @@ export default new Router({
     name: 'activityConfirm',
     component: activityConfirm
   },
-  {
-    path: '/activityApply',
-    name: 'activityApply',
-    component: activityApply
-  },
+
+//   {
+//     path: '/activityApply',
+//     name: 'activityApply',
+//     component: activityApply
+//   },
+
+    {
+      path: '/activityApply',
+      name: 'activityApply',
+      component: activityApply
+    },
+    {
+      path: '/activityEnd',
+      name: 'activityEnd',
+      component: activityEnd
+    },
+    {
+      path: '/organization',
+      name: 'organization',
+      component: organization
+    },
+  // {
+  //   path: '/organization/:organizationId',
+  //   name: 'organizationInfo',
+  //   component: organizationInfo
+  // },
   {
     path: '/organization/organizationRegister',
     name: 'organizationRegister',
     component: organizationRegister
   },
+  {
+    path: '/organization/organizationList',
+    name: 'organizationList',
+    component: organizationList
+  },
+
   ]
 })

@@ -10,7 +10,7 @@
       <el-menu-item index="resource" @click="$router.push('/resource')">
         资源
       </el-menu-item>
-      <el-menu-item index="forum" @click="$router.push('/forum')">
+      <el-menu-item index="organization" @click="$router.push('/organization')">
         组织
       </el-menu-item>
       <el-menu-item index="user" @click="$router.push('/user')">

@@ -180,3 +180,28 @@ export const video_play = params => {
 export const video_list = params => {
   return axios.get('/example/example')
 }
+
+//获取所有组织信息
+export const get_all_organization = params => {
+  return axios.get('/organization/getAllMsg')
+}
+
+//组织注册表单提交
+export const organization_register = params => {
+  return axios.post('/organization/foundation/apply',params)
+}
+
+//根据ID获取组织信息
+export const get_organization_by_Id = params => {
+  return axios.get('/organization/{id}')
+}
+
+//活动申请请求发送
+export const activity_apply = params => {
+  return axios.post('/activity/apply')
+}
+
+//活动结束上传资料
+export const activity_finished_upload = params => {
+  return axios.post('/activity/finished/upload')
+}

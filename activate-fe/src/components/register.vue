@@ -155,7 +155,7 @@ export default {
                   type: 'error',
                   showClose: true
                 })
-                console.log("error! organization-register.vue", e.response);
+                console.log("error! register.vue", e.response);
               })
           } else {
             this.$alert('请正确输入', '警告', {
