@@ -31,10 +31,6 @@ describe("navbar.vue", () => {
 
   it("仅在登陆后显示登出", () => {
     const wrapper = wrapperInstant(true);
-<<<<<<< HEAD
-
-=======
->>>>>>> complete navbar unit test
     expect(wrapper.find('[index="log"]').exists()).to.not.be.ok;
     expect(wrapper.find('[index="logout"]').exists()).to.be.ok;
   });
