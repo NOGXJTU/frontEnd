@@ -20,7 +20,7 @@
             <el-input type="text" v-model="form.location" placeholder=""></el-input>
           </el-form-item>
           <el-form-item prop="description" label="组织简介">
-            <el-input type="textarea":rows="3" v-model="form.description" placeholder=""></el-input>
+            <el-input type="textarea" rows="3" v-model="form.description" placeholder=""></el-input>
           </el-form-item>
           <el-form-item prop="logoUrl" label="组织logo">
             <el-upload
@@ -45,7 +45,7 @@
     </div>
   </div>
 </template>
-organization_register
+
 <script>
 import { organization_register } from "../../api/api";
 
@@ -63,7 +63,6 @@ export default {
               leaderId:'',
               location:'',
               description:'',
-              logoUrl:this.fileList[0].url,
             },
             rules:{
               name: [
@@ -83,7 +82,7 @@ export default {
                 { required:true , message: 'Logo Url', trigger: 'blur'}
               ],
             }
-          };
+          }
       },
       methods:{
         handleRemove(file, fileList) {

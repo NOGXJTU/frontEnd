@@ -1,29 +1,22 @@
 <template>
-  <div class="hello">
-    <el-container>
-      <dl>
-        <dt v-for="(item, index) in 5" :key="index">
-          <div class="activity-item">
-            <el-card class="box-card">
-              <span>活动名称-活动状态</span>
-              <el-button style="float: right; padding: 3px 0" type="text" @click="handle_quit(item)">退出活动</el-button>
-            </el-card>
-          </div>
-        </dt>
-      </dl>
-    </el-container>
-
+  <div class="personal-activityinfo">
+      <dt v-for="(item, index) in 5" :key="index">
+        <div class="activity-item">
+          <el-card class="box-card">
+            <span>活动名称-活动状态</span>
+            <el-button style="float: right; padding: 3px 0" type="text" @click="handle_quit(item)">退出活动</el-button>
+          </el-card>
+        </div>
+      </dt>
   </div>
 </template>
 
 <script>
-// import '../../assets/bootstrap.js'
-
 export default {
-  name: 'info-activity',
+  name: 'ActivityInfo',
   data() {
     return {
-      msg: '这里是user'
+      msg: ''
     }
   },
 
@@ -49,9 +42,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .activity-item {
   margin-bottom: 18px;
 }

@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  // import '../../assets/bootstrap.js'
 
 export default {
   name: 'info-activity',

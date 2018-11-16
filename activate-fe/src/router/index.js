@@ -1,15 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// import activity from '@/components/Activity/activity'
-import forum from '@/components/Forum/forum'
-
-import user from '../components/User/user'
-import login from '../components/login'
-import register from '../components/register'
 import NotFind from '../components/not-find'
-import passwordModify from '../components/User/password-modify'
-import passwordForget from '../components/User/password-forget'
 import activityInfo from '../components/Activity/activity-info'
 import infoOthers from '../components/User/info-others'
 import admin from '../components/Admin/admin'
@@ -38,10 +30,17 @@ import VideoPlayer from '@/views/resource/secondary/VideoPlayer'
 import DetailsList from '@/views/resource/secondary/DetailsList'
 //活动页面
 import Activity from '@/views/activity/index'
+//个人中心页面
+import Personal from '@/views/personal/index'
 //关于页面
 import About from '@/views/about/About'
 //章程页面
 import Regulation from '@/views/regulation/index'
+//用户模块
+import Login from '@/common/user/Login'
+import Register from '@/common/user/Register'
+import PasswordModify from '@/common/user/PasswordModify'
+import PasswordForget from '@/common/user/PasswordForget'
 export default new Router({
   routes: [{
     path: '/',
@@ -64,11 +63,6 @@ export default new Router({
     component: activityInfo
   },
   {
-    path: '/forum',
-    name: 'Forum',
-    component: forum
-  },
-  {
     path: '/resource',
     name: 'Resource',
     component: resource
@@ -86,7 +80,7 @@ export default new Router({
   {
     path: '/user',
     name: 'User',
-    component: user,
+    component: Personal,
     meta: {
       auth: true
     }
@@ -117,17 +111,17 @@ export default new Router({
   {
     path: '/login',
     name: 'Login',
-    component: login
+    component: Login
   },
   {
     path: '/register',
     name: 'Register',
-    component: register
+    component: Register
   },
   {
     path: '/passwordModify',
     name: 'PasswordModify',
-    component: passwordModify,
+    component: PasswordModify,
     meta: {
       auth: true
     }
@@ -135,7 +129,7 @@ export default new Router({
   {
     path: '/passwordForget',
     name: 'PasswordForget',
-    component: passwordForget
+    component: PasswordForget
   },
   {
     path: '/activityConfirm',

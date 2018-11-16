@@ -1,15 +1,7 @@
 <template>
   <div>
-    <div class="header"></div>
-    <!-- 空（已完成，模板） -->
     <div class="main-organization">
       <div class="activity" style="width: 70%; float: left">
-        <div class="breadcrumb">
-          <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>组织</el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>
         <div class="organization-list" v-for="organization in organizations" :key="organization.id">
           <div @click="$router.push('/organization/'+organization.id)">
             <el-card class="organization-card">
@@ -28,7 +20,6 @@
               </el-container>
             </el-card>
           </div>
-
         </div>
       </div>
       <div class="right-bar" style="float: right">
@@ -44,8 +35,6 @@
         </div>
       </div>
     </div>
-    <div class="footer"></div>
-    <!-- 空（已完成，模板） -->
   </div>
 </template>
 

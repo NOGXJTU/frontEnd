@@ -11,9 +11,13 @@
             <i class="el-icon-document"></i>
             <span slot="title">我的活动</span>
           </el-menu-item>
+          <el-menu-item index="confirm">
+            <i class="el-icon-document"></i>
+            <span slot="title">活动成员审批</span>
+          </el-menu-item>
           <el-menu-item index="confirm" v-show="">
             <i class="el-icon-document"></i>
-            <span slot="title">活动审批</span>
+            <span slot="title">组织成员审批</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
@@ -23,7 +27,6 @@
         </el-main>
       </el-container>
     </el-container>
-
   </div>
 </template>
 
@@ -39,7 +42,6 @@ export default {
       componentName: 'infoBasic'
     }
   },
-
   methods: {
     change_component(key) {
       switch (key) {
@@ -57,7 +59,6 @@ export default {
       }
     }
   },
-
   components: {
     infoActivity,
     infoBasic,

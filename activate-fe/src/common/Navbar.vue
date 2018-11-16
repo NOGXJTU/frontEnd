@@ -10,7 +10,7 @@
       <el-menu-item index="resource" @click="$router.push('/resource')">
         资源
       </el-menu-item>
-      <el-menu-item index="forum" @click="$router.push('/forum')">
+      <el-menu-item index="forum" @click="$router.push('/organization')">
         组织
       </el-menu-item>
       <el-menu-item index="user" @click="$router.push('/user')">
@@ -58,7 +58,7 @@ export default {
           this.$router.push('/')
           console.log(this.$store.state.userInfo);
         }).catch(e => {
-        console.log("error! login.vue", e.response.data);
+        console.log("error! Login.vue", e.response.data);
       })
     }
   },
