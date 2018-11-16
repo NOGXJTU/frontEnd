@@ -74,7 +74,7 @@
         <el-main height="">
           <!-- Main content -->
           <el-row :gutter="20">
-            <el-col :span="6" v-for="(item, index) in 8" :key="index">
+            <el-col :span="6" v-for="(video,index) in videos" :key="index" v-if="index < 8">
               <el-card :body-style="{ padding: '0px' }"  class="video-item">
                 <img src="https://dummyimage.com/120x100/000/fff" class="image">
                 <div style="padding: 14px;">
@@ -95,6 +95,7 @@
 
 <script>
 import 'video.js/dist/video-js.css'
+import { video_list } from "../../api/api";
 
 import { videoPlayer } from 'vue-video-player'
 
@@ -102,11 +103,24 @@ export default {
   name: 'resource',
   data() {
     return {
-
+      videos:[],
     }
   },
   components: {
     videoPlayer
+  },
+  methods:{
+    get_all_videos(){
+      video_list()
+        .then(res => {
+          this.videos = res.data
+        }).catch( e => {
+        console.log(e.response.data)
+      })
+    }
+  },
+  mounted(){
+    this.get_all_videos()
   }
 }
 

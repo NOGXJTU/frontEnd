@@ -6,11 +6,10 @@
     </div>
     <el-container>
       <el-main>
-        <div  v-for="o in 10" :key="o">
+        <div  v-for="point in points" :key="point">
           <el-card class="box-card card-shape" >
             <div class="clearfix">
-              <a href="http://localhost:8080/#/resource/resourceKnowledge" style="text-decoration: none;margin-left: 20px">知识点  {{o}}</a>
-              <span style="margin-left: 20px"> 发布时间：{{发布时间time}}</span>
+              <a href="http://localhost:8080/#/resource/resourceKnowledge" style="text-decoration: none;margin-left: 20px">知识点  {{point.title}}</a>
               <el-button style="float: right; padding: 3px 0" type="text">下载</el-button>
             </div>
           </el-card>
@@ -31,7 +30,29 @@
 </template>
 
 <script>
+  import {knowleadge_point} from "../../api/api";
 
+  export default {
+    name:'resource-knowledge',
+    data(){
+      return{
+        points:[],
+      }
+    },
+    methods: {
+      get_all_points(){
+        knowleadge_point()
+          .then(res => {
+            this.points = res.data
+          }).catch( e => {
+          console.log(e.response.data)
+        })
+      }
+    },
+    mounted(){
+      this.get_all_points()
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

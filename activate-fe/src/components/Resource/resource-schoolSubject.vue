@@ -6,12 +6,12 @@
     </div>
     <el-container>
       <el-main>
-        <div  v-for="o in 10" :key="o">
+        <div  v-for="subject in subjects" :key="subject">
           <el-card class="box-card card-shape" >
             <div class="clearfix">
-              <a href="http://localhost:8080/#/resource/resourceSchoolSubject" style="text-decoration: none;margin-left: 20px">带学学科介绍  {{o}}</a>
-              <span style="margin-left: 20px"> 发布时间：{{发布时间time}}</span>
-              <el-button style="float: right; padding: 3px 0" type="text">上传人：{{上传人}}</el-button>
+              <a href="http://localhost:8080/#/resource/resourceSchoolSubject" style="text-decoration: none;margin-left: 20px">带学学科介绍  {{subject.title}}</a>
+              <!--<span style="margin-left: 20px"> 发布时间：{{发布时间time}}</span>-->
+              <el-button style="float: right; padding: 3px 0" type="text">上传人：{{subject.constructor}}</el-button>
             </div>
           </el-card>
         </div>
@@ -31,7 +31,29 @@
 </template>
 
 <script>
+  import {school_subject_intro} from "../../api/api";
 
+  export default {
+    name:'resource-school-subject',
+    data(){
+      return{
+        subjects:[],
+      }
+    },
+    methods: {
+      get_all_subjects(){
+        school_subject_intro()
+          .then(res => {
+            this.subjects = res.data
+          }).catch( e => {
+          console.log(e.response.data)
+        })
+      }
+    },
+    mounted(){
+      this.get_all_subjects()
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

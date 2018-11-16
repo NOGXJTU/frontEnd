@@ -91,7 +91,6 @@
             <div style="padding: 5px;">
               <span>第一个活动</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
           </el-card>
@@ -103,7 +102,6 @@
             <div style="padding: 2px;">
               <span>第一个活动</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
@@ -112,7 +110,6 @@
             <div style="padding: 2px;">
               <span>第一个活动</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
@@ -124,7 +121,6 @@
             <div style="padding: 2px;">
               <span>第一个活动</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
@@ -133,7 +129,6 @@
             <div style="padding: 2px;">
               <span>第一个活动</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>

@@ -1,17 +1,12 @@
 <template>
   <div>
-    <div>
-      <span style="margin-left: 40px">请选择年级与科目：</span>
-      <el-cascader></el-cascader>
-    </div>
     <el-container>
       <el-main>
-        <div  v-for="o in 10" :key="o">
+        <div  v-for="exp in experience" :key="exp">
           <el-card class="box-card card-shape" >
             <div class="clearfix">
-              <a href="http://localhost:8080/#/resource/resourceExperience" style="text-decoration: none;margin-left: 20px">学习经验经历  {{o}}</a>
-              <span style="margin-left: 20px"> 发布时间：{{发布时间time}}</span>
-              <el-button style="float: right; padding: 3px 0" type="text">上传人：{{上传人}}</el-button>
+              <a href="http://localhost:8080/#/resource/resourceExperience" style="text-decoration: none;margin-left: 20px">{{exp.title}}</a>
+              <el-button style="float: right; padding: 3px 0" type="text">上传人：{{exp.contributor}}</el-button>
             </div>
           </el-card>
         </div>
@@ -31,7 +26,29 @@
 </template>
 
 <script>
+import {study_experience} from "../../api/api";
 
+  export default {
+    name:'resource-experience',
+    data(){
+      return{
+        experience:[],
+      }
+    },
+    methods: {
+      get_all_exp(){
+        study_experience()
+          .then(res => {
+            this.experience = res.data
+          }).catch( e => {
+            console.log(e.response.data)
+        })
+      }
+    },
+    mounted(){
+      this.get_all_exp()
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

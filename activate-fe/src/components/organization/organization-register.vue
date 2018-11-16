@@ -9,18 +9,21 @@
     </div>
     <div class="organization-register-card">
       <el-card>
-        <el-form ref="form" :model="form"  :rules="rules" label-width="100px">
+        <el-form ref="form" :model="form" :rules="rules" label-width="100px">
           <el-form-item prop="name" label="组织名称">
             <el-input type="text" v-model="form.name" placeholder=""></el-input>
           </el-form-item>
-          <el-form-item prop="leaderId" label="组织领导">
-            <el-input type="text" v-model="form.leaderId" placeholder="申请人为该组织领导（申请人输入自己ID）"></el-input>
-          </el-form-item>
+          <!--<el-form-item prop="leaderId" label="组织领导">-->
+            <!--<el-input type="text" v-model="form.leaderId" placeholder="申请人为该组织领导（申请人输入自己ID）"></el-input>-->
+          <!--</el-form-item>-->
           <el-form-item prop="location" label="所在地点">
             <el-input type="text" v-model="form.location" placeholder=""></el-input>
           </el-form-item>
           <el-form-item prop="description" label="组织简介">
             <el-input type="textarea":rows="3" v-model="form.description" placeholder=""></el-input>
+          </el-form-item>
+          <el-form-item prop="applyDescription" label="组织申请辞">
+            <el-input type="textarea":rows="3" v-model="form.applyDescription" placeholder=""></el-input>
           </el-form-item>
           <el-form-item prop="logoUrl" label="组织logo">
             <el-upload
@@ -48,6 +51,7 @@
 organization_register
 <script>
 import { organization_register } from "../../api/api";
+import { mapState } from 'vuex'
 
 export default {
         name: "organization-register",
@@ -63,7 +67,8 @@ export default {
               leaderId:'',
               location:'',
               description:'',
-              logoUrl:this.fileList[0].url,
+              applyDescription:'',
+              logoUrl:this.fileList,
             },
             rules:{
               name: [
@@ -78,6 +83,9 @@ export default {
               ],
               description: [
                 { required:true , message: '请输入组织简介', trigger: 'blur'}
+              ],
+              applyDescription: [
+                { required:true , message: '请输入组织申请描述', trigger: 'blur'}
               ],
               logoUrl: [
                 { required:true , message: 'Logo Url', trigger: 'blur'}
@@ -97,6 +105,16 @@ export default {
         },
         beforeRemove(file, fileList) {
           return this.$confirm(`确定移除 ${ file.name }？`);
+        },
+        getImgUrl(){
+          if (this.fileList != null){
+            this.form.logoUrl = this.fileList[0].url;
+          }
+          console.log(this.fileList[0].url)
+        },
+        getCurrentUserId(){
+          this.form.leaderId = this.userInfo.id;
+          console.log(this.userInfo.id)
         },
         handle_register() {
           this.$refs['form'].validate(
@@ -129,7 +147,17 @@ export default {
             }
           )
         }
-      }
+      },
+  mounted(){
+    this.getImgUrl();
+    this.getCurrentUserId()
+    console.log(this.userInfo)
+    // console.log(this.userInfo)
+  },
+  computed: {
+    ...mapState(['isLogged']),
+      ...mapState(['userInfo'])
+  }
     }
 </script>
 
