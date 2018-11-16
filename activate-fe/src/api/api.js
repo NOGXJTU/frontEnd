@@ -241,3 +241,10 @@ export const school_intro = params => {
 export const school_subject_intro =  params => {
   return axios.get('/subject/subject')
 }
+
+
+// 获取所有活动
+
+export const get_all_activity = params => {
+  return axios.get('/activity/activity')
+}
