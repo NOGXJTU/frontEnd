@@ -58,7 +58,7 @@ export default {
           this.$router.push('/')
           console.log(this.$store.state.userInfo);
         }).catch(e => {
-          console.log("error! login.vue", e.response.data);
+          console.log("error! Login.vue", e.response.data);
         })
     }
   },
