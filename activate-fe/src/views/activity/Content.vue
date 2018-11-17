@@ -33,7 +33,7 @@ export default {
     get_activity() {
       get_all_unfinished_activity_info()
         .then(res => {
-          console.log(res.data)
+          console.log(res)
           this.activities = res.data
         })
         .catch(e => {

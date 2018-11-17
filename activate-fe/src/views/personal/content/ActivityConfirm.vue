@@ -18,8 +18,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: "ActivityConfirm"
+  name: "ActivityConfirm",
+  computed: {
+    ...mapState(['userInfo'])
+  },
+  mounted() {
+    console.log(userInfo)
+  }
 }
 </script>
 
