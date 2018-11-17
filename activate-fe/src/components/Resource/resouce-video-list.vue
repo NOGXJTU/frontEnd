@@ -47,7 +47,6 @@ export default {
   methods: {
     get_all_video() {
       console.log('get video here');
-      
       video_list()
         .then(res => {
           this.$message({
@@ -70,7 +69,7 @@ export default {
   },
   mounted() {
     console.log('video list mounted');
-    
+
     this.get_all_video();
   }
 }

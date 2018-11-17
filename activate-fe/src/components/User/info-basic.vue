@@ -48,6 +48,7 @@ export default {
   mounted() {
     // let form=userInfo when this component is mounted
     this.form = Object.assign({}, this.userInfo)
+    console.log(this.userInfo)
   },
 
   methods: {
