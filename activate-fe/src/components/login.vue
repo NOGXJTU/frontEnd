@@ -26,7 +26,7 @@
               </el-button>
             </router-link>
           <el-form-item>
-            <el-button type="primary" @click="handle_submit">登陆</el-button>
+            <el-button id="login" type="primary" @click="handle_submit">登陆</el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -35,67 +35,68 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { request_login } from '../api/api.js'
+import { mapState } from "vuex";
+import { request_login } from "../api/api.js";
 
 export default {
-  name: 'login',
+  name: "login",
   data() {
     return {
       form: {
-        passport: '',
-        password: ''
+        passport: "",
+        password: ""
       },
       rules: {
         passport: [
-          { required: true, message: '请输入用户名/邮箱/手机号', trigger: 'blur' }
+          {
+            required: true,
+            message: "请输入用户名/邮箱/手机号",
+            trigger: "blur"
+          }
         ],
-        password: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
-        ]
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       }
-    }
+    };
   },
   methods: {
     handle_submit() {
-      this.$refs['form'].validate(
-        (valid) => {
-          if (valid) {
-            request_login(this.form)
-              .then(res => {
-                this.$store.commit('SET_USERINFO', res.data) // save user information
-                this.$store.commit('TOGGLE_LOGIN') // change login status
-                // send success message
-                this.$message({
-                  message: '登陆成功',
-                  type: 'success',
-                  showClose: true
-                })
-                this.$router.push('/')
-                console.log(this.$store.state.userInfo);
-              }).catch(e => {
-                // send fail message
-                this.$message({
-                  message: '登陆失败',
-                  type: 'error',
-                  showClose: true
-                })
-                console.log("error! login.vue", e.response.data);
-              })
-          } else {
-            this.$alert('请正确输入', '警告', {
-              confirmButtonText: '确定',
-              type: 'warning'
+      this.$refs["form"].validate(valid => {
+        if (valid) {
+          request_login(this.form)
+            .then(res => {
+              this.$store.commit("SET_USERINFO", res.data); // save user information
+              this.$store.commit("TOGGLE_LOGIN"); // change login status
+              // send success message
+              this.$message({
+                message: "登陆成功",
+                type: "success",
+                showClose: true
+              });
+              this.$router.push("/");
+              console.log(this.$store.state.userInfo);
             })
-          }
+            .catch(e => {
+              // send fail message
+              this.$message({
+                message: "登陆失败",
+                type: "error",
+                showClose: true
+              });
+              console.log("error! login.vue", e.response.data);
+            });
+        } else {
+          this.$alert("请正确输入", "警告", {
+            confirmButtonText: "确定",
+            type: "warning"
+          });
         }
-      )
+      });
     }
   },
   computed: {
-    ...mapState(['isLogged'])
+    ...mapState(["isLogged"])
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
