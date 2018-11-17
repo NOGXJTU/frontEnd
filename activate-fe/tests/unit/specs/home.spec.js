@@ -3,7 +3,7 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Home from "@/components/home.vue";
 import "../util";
 
-describe("home.vue", () => {
+describe.skip("home.vue", () => {
   const wrapper = shallowMount(Home);
 
   it("显示banner", () => {

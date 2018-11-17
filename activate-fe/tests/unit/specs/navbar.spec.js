@@ -22,7 +22,7 @@ function wrapperInstant(isLogged) {
   });
 }
 
-describe("navbar.vue", () => {
+describe.skip("navbar.vue", () => {
   it("仅在未登录时显示登陆/注册", () => {
     const wrapper = wrapperInstant(false);
     expect(wrapper.find('[index="log"]').exists()).to.be.ok;
