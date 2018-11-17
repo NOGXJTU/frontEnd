@@ -3,6 +3,7 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/components/navbar.vue";
 import Vuex from "vuex";
 import VueRouter from "vue-router";
+import flushPromises from "flush-promises";
 import "../util";
 
 const localVue = createLocalVue();
