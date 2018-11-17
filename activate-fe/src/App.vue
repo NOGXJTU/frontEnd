@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
 .lizi {
   position: absolute;
   background-size: cover;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="personal-other">
     <el-container>
       <el-card class="box-card">
         <div slot="header" class="clearfix">
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import { get_user_info_by_id } from '../../api/api.js'
-import { get_acticity_by_id } from "../../api/api";
+import { get_user_info_by_id } from '@/api/api'
+import { get_acticity_by_id } from "@/api/api";
 
 
 export default {
@@ -35,8 +35,6 @@ export default {
 
   // 路由发生变化时更新数据
   beforeRouteUpdate(to, from, next) {
-    console.log('beforerouterupdate');
-
     this.get_user_info(to.params.userId)
     next()
   },
@@ -74,6 +72,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>

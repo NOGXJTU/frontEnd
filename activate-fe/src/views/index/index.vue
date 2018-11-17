@@ -19,5 +19,16 @@ export default {
 </script>
 
 <style scoped>
-
+.banner {
+  margin-top: 30px;
+}
+.activity {
+  margin-top: 75px;
+}
+.intro {
+  margin-top: 75px;
+}
+.map {
+  margin-top: 75px;
+}
 </style>

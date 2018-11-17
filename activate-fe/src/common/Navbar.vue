@@ -22,10 +22,10 @@
       <el-menu-item v-if="this.isLogged" index="logout" @click="handle_logout" style="float: right">
         登出
       </el-menu-item>
-      <el-menu-item index="regulation" @click="$router.push('/regulation')" style="float: right">
+      <el-menu-item index="regulation" @click="$router.push('/regulation')">
         章程
       </el-menu-item>
-      <el-menu-item index="about" @click="$router.push('/about')" style="float: right">
+      <el-menu-item index="about" @click="$router.push('/about')">
         关于
       </el-menu-item>
     </el-menu>

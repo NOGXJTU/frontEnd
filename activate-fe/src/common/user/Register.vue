@@ -141,7 +141,7 @@ export default {
                 type: 'error',
                 showClose: true
               })
-              console.log("error! register.vue", e.response);
+              console.log("error! Register.vue", e.response);
             })
           } else {
             this.$alert('请正确输入', '警告', {

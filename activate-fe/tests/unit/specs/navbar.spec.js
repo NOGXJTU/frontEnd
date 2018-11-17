@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
-import Navbar from "@/components/navbar.vue";
+import Navbar from "@/common/Navbar.vue";
 import "../util";
 
 describe("navbar.vue", () => {

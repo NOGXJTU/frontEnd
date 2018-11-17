@@ -84,11 +84,6 @@
     margin-top: 0px;
   }
 
-  .contact-information {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-
   .contact-icon {
     padding: 2px;
     width: 50px;

@@ -2,18 +2,16 @@
   <div class="active-view">
     <chose></chose>
     <Content></Content>
-    <news></news>
     <div style="clear: both"></div>
   </div>
 </template>
 
 <script>
 import Chose from "./Chose";
-import Content from "../regulation/Content";
-import News from "./News";
+import Content from "./Content";
 export default {
   name: "activity",
-  components: {News, Content, Chose}
+  components: {Content, Chose}
 }
 </script>
 

@@ -1,27 +1,29 @@
 <template>
-  <div class="activity-content" v-for="activity in activities" :key="activity.id">
-    <div @click="$router.push('/activity/'+activity.id)">
-      <el-card class="box-card" >
-        <div slot="header" class="clearfix">
-          <a @click="$router.push('/activity/'+activity.id)" style="text-decoration: none">活动名称：{{activity.name}}</a>
-        </div>
-        <div>
-          活动时间：{{activity.beginTime}}
-          <br> {{activity.description}}
-        </div>
-      </el-card>
+  <div class="activity-content">
+    <div class="" v-for="activity in activities" :key="activity.id">
+      <div @click="$router.push('/activity/'+activity.id)">
+        <el-card class="box-card" >
+          <div slot="header" class="clearfix">
+            <a @click="$router.push('/activity/'+activity.id)" style="text-decoration: none">活动名称：{{activity.name}}</a>
+          </div>
+          <div>
+            活动时间：{{activity.beginTime}}
+            <br> {{activity.description}}
+          </div>
+        </el-card>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { get_all_unfinished_activity_info } from '@/api/api.js'
+import { get_all_unfinished_activity_info } from '@/api/api'
 
 export default {
   name: "Content",
   data() {
     return {
-      msg: '这里是activity',
+      msg: '',
       activities: [],
       activity_show: []
     }

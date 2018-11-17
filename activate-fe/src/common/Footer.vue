@@ -1,7 +1,7 @@
 <template>
   <el-footer height="120px">
     <div class="footer-content">
-      <h3>一场伟大理想&emsp;&emsp;&emsp;一段无悔青春</h3>
+      <h2>一场伟大理想&emsp;&emsp;&emsp;一段无悔青春</h2>
     </div>
   </el-footer>
 </template>
@@ -19,7 +19,7 @@
     height: 120px;
     padding-top: 40px;
   }
-  h3 {
+  h2 {
     letter-spacing: 15px;
     text-align: center;
   }

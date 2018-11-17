@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <div class="activity-member-title">
-      活动参与成员:
-    </div> -->
     <div class="activity-members" v-for="member in members" :key="member.id" @click="$router.push('/user/'+member.id)">
       <el-card class="box-card">
         <div>

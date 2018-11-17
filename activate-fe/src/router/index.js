@@ -1,21 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import NotFind from '../components/not-find'
-import activityInfo from '../components/Activity/activity-info'
-import infoOthers from '../components/User/info-others'
-import admin from '../components/Admin/admin'
-import activityConfirm from '../components/User/activity_confirm'
-
-//activity
-import activityApply from '../components/Activity/activity-apply'
-import activityEnd from '../components/Activity/activity-end'
-
-// organization
-import organization from '../components/organization/organization'
-import organizationRegister from '../components/organization/organization-register'
-import organizationInfo from '../components/organization/organization-info'
-import organizationList from '../components/organization/organization-list'
 
 //resource router
 
@@ -30,8 +15,17 @@ import VideoPlayer from '@/views/resource/secondary/VideoPlayer'
 import DetailsList from '@/views/resource/secondary/DetailsList'
 //活动页面
 import Activity from '@/views/activity/index'
+import ActivityConfirm from '@/views/personal/content/ActivityConfirm'
+import ActivityApply from '@/views/activity/secondary/thirdary/Apply'
+import ActivityEnd from '@/views/activity/secondary/thirdary/End'
+import ActivityInfo from '@/views/activity/secondary/Info'
+//组织页面
+import Organization from '@/views/organization/index'
+import OrganizationRegister from '@/views/organization/secondary/Register'
+import OrganizationInfo from '@/views/organization/secondary/Info'
 //个人中心页面
 import Personal from '@/views/personal/index'
+import Other from '@/views/personal/Other'
 //关于页面
 import About from '@/views/about/About'
 //章程页面
@@ -48,11 +42,6 @@ export default new Router({
     component: index
   },
   {
-    path: '/admin',
-    name: 'Admin',
-    component: admin
-  },
-  {
     path: '/activity',
     name: 'Activity',
     component: Activity
@@ -60,7 +49,7 @@ export default new Router({
   {
     path: '/activity/:activityId',
     name: 'ActivityInfo',
-    component: activityInfo
+    component: ActivityInfo
   },
   {
     path: '/resource',
@@ -87,8 +76,8 @@ export default new Router({
   },
   {
     path: '/user/:userId',
-    name: 'InfoOthers',
-    component: infoOthers,
+    name: 'Other',
+    component: Other,
     meta: {
       auth: true
     }
@@ -102,11 +91,6 @@ export default new Router({
     path: '/regulation',
     name: 'Regulation',
     component: Regulation
-  },
-  {
-    path: '/404',
-    name: 'NotFind',
-    component: NotFind
   },
   {
     path: '/login',
@@ -133,46 +117,33 @@ export default new Router({
   },
   {
     path: '/activityConfirm',
-    name: 'activityConfirm',
-    component: activityConfirm
+    name: 'ActivityConfirm',
+    component: ActivityConfirm
   },
-
-//   {
-//     path: '/activityApply',
-//     name: 'activityApply',
-//     component: activityApply
-//   },
-
     {
       path: '/activityApply',
-      name: 'activityApply',
-      component: activityApply
+      name: 'ActivityApply',
+      component: ActivityApply
     },
     {
       path: '/activityEnd',
-      name: 'activityEnd',
-      component: activityEnd
+      name: 'ActivityEnd',
+      component: ActivityEnd
     },
     {
       path: '/organization',
-      name: 'organization',
-      component: organization
+      name: 'Organization',
+      component: Organization
     },
-  // {
-  //   path: '/organization/:organizationId',
-  //   name: 'organizationInfo',
-  //   component: organizationInfo
-  // },
+  {
+    path: '/organization/:organizationId',
+    name: 'OrganizationInfo',
+    component: OrganizationInfo
+  },
   {
     path: '/organization/organizationRegister',
-    name: 'organizationRegister',
-    component: organizationRegister
-  },
-  {
-    path: '/organization/organizationList',
-    name: 'organizationList',
-    component: organizationList
-  },
-
+    name: 'OrganizationRegister',
+    component: OrganizationRegister
+  }
   ]
 })

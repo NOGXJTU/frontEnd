@@ -53,7 +53,7 @@
         <div>
           <el-header height="">
             <!-- Header content -->
-            <el-button type="text" @click="componentName='activityDetail' ">活动详情</el-button>
+            <el-button type="text" @click="componentName='activityDetail'">活动详情</el-button>
             <el-button type="text" @click="componentName='activityMember'">活动成员</el-button>
           </el-header>
           <el-main height="">
@@ -75,9 +75,9 @@
 </template>
 
 <script>
-import { get_acticity_by_id } from '../../api/api.js'
-import { send_application } from '../../api/api.js'
-import { get_user_info } from "../../api/api";
+import { get_acticity_by_id } from '@/api/api'
+import { send_application } from '@/api/api'
+import { get_user_info } from "@/api/api";
 import activityDetail from './activity-detail'
 import activityMember from './activity-member'
 import activityOwner from './activity-owner'
