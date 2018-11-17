@@ -1,8 +1,7 @@
 <template>
   <div>
-  <div class="main-organization">
-    <div class="activity" style="width: 70%; float: left">
-      <div class="organization-list" v-for="organization in organizations" :key="organization.id">
+    <div class="activity organization-list" >
+      <div class="organization-one" v-for="organization in organizations" :key="organization.id">
         <div @click="$router.push('/organization/'+organization.id)">
           <el-card class="organization-card">
             <el-container>
@@ -22,7 +21,6 @@
         </div>
       </div>
     </div>
-  </div>
     <div style="clear: both"></div>
   </div>
 </template>
@@ -65,8 +63,9 @@
     padding-top: 5%;
   }
   .organization-list{
-    width: 60%;
-    padding-left: 7%;
+    padding-top: 3%;
+    width: 80%;
+    padding-left: 10%;
     /*height: 200px;*/
 
   }
