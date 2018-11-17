@@ -303,7 +303,7 @@ export default {
   mounted(){
     this.get_all_activities()
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

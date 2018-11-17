@@ -48,5 +48,8 @@ export default {
 </script>
 
 <style scoped>
-
+.box-card {
+  margin: 15px;
+  cursor: pointer;
+}
 </style>
