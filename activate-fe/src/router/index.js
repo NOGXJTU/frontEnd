@@ -144,6 +144,11 @@ export default new Router({
     path: '/organization/organizationRegister',
     name: 'OrganizationRegister',
     component: OrganizationRegister
-  }
+  },
+  // {
+  //   path: '/organization/organizationList',
+  //   name: 'organizationList',
+  //   component: OrganizationList
+  // }
   ]
 })

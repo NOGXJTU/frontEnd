@@ -205,3 +205,46 @@ export const activity_apply = params => {
 export const activity_finished_upload = params => {
   return axios.post('/activity/finished/upload')
 }
+
+// 资源
+
+//学习经验
+export const study_experience = params => {
+  return axios.get('/experience/experience')
+}
+
+//学习指导
+export const study_guidance = params => {
+  return axios.get('/guidance/guidance')
+}
+
+//知识点
+export const knowleadge_point = params => {
+  return axios.get('/point/point')
+}
+
+//重点题型讲解
+export const import_explain = params => {
+  return axios.get('/point/point')
+}
+
+//典型例题解析
+// export const typical_example = params => {
+//   return axios.get('/example/example')
+// }
+
+// school
+export const school_intro = params => {
+  return axios.get('/school/school')
+}
+
+export const school_subject_intro =  params => {
+  return axios.get('/subject/subject')
+}
+
+
+// 获取所有活动
+
+export const get_all_activity = params => {
+  return axios.get('/activity/activity')
+}

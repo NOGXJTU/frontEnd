@@ -22,19 +22,8 @@
         </div>
       </div>
     </div>
-    <div class="right-bar" style="float: right">
-      <div class="hot-activities">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <span>近期活动</span>
-          </div>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{'活动 ' + o }}
-          </div>
-        </el-card>
-      </div>
-    </div>
   </div>
+    <div style="clear: both"></div>
   </div>
 </template>
 

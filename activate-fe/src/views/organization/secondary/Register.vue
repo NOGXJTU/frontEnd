@@ -48,6 +48,7 @@
 
 <script>
   import { organization_register } from "@/api/api";
+  import { mapState } from 'vuex'
 
   export default {
     name: "OrganizationRegister",
@@ -63,6 +64,8 @@
           leaderId:'',
           location:'',
           description:'',
+          applyDescription:'',
+          logoUrl:this.fileList,
         },
         rules:{
           name: [
@@ -77,6 +80,9 @@
           ],
           description: [
             { required:true , message: '请输入组织简介', trigger: 'blur'}
+          ],
+          applyDescription: [
+            { required:true , message: '请输入组织申请描述', trigger: 'blur'}
           ],
           logoUrl: [
             { required:true , message: 'Logo Url', trigger: 'blur'}
@@ -96,6 +102,16 @@
       },
       beforeRemove(file, fileList) {
         return this.$confirm(`确定移除 ${ file.name }？`);
+      },
+      getImgUrl(){
+        if (this.fileList != null){
+          this.form.logoUrl = this.fileList[0].url;
+        }
+        console.log(this.fileList[0].url)
+      },
+      getCurrentUserId(){
+        this.form.leaderId = this.userInfo.id;
+        console.log(this.userInfo.id)
       },
       handle_register() {
         this.$refs['form'].validate(
@@ -128,6 +144,16 @@
           }
         )
       }
+    },
+    mounted(){
+      this.getImgUrl();
+      this.getCurrentUserId()
+      console.log(this.userInfo)
+      // console.log(this.userInfo)
+    },
+    computed: {
+      ...mapState(['isLogged']),
+      ...mapState(['userInfo'])
     }
   }
 </script>

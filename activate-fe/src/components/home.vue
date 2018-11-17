@@ -89,9 +89,8 @@
           <el-card :body-style="{ padding: '0px' }">
             <img src="https://dummyimage.com/500x400" class="image">
             <div style="padding: 5px;">
-              <span>第一个活动</span>
+              <span>{{this.activities[0].name}}</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
           </el-card>
@@ -101,18 +100,16 @@
         <el-card :body-style="{ padding: '0px' }" class="top-activity">
             <img src="https://dummyimage.com/130x80" class="image">
             <div style="padding: 2px;">
-              <span>第一个活动</span>
+              <span>{{this.activities[1].name}}</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
         <el-card :body-style="{ padding: '0px' }">
             <img src="https://dummyimage.com/130x80" class="image">
             <div style="padding: 2px;">
-              <span>第一个活动</span>
+              <span>{{this.activities[2].name}}</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
@@ -122,18 +119,16 @@
         <el-card :body-style="{ padding: '0px' }" class="top-activity">
             <img src="https://dummyimage.com/130x80" class="image">
             <div style="padding: 2px;">
-              <span>第一个活动</span>
+              <span>{{this.activities[3].name}}</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
         <el-card :body-style="{ padding: '0px' }">
             <img src="https://dummyimage.com/130x80" class="image">
             <div style="padding: 2px;">
-              <span>第一个活动</span>
+              <span>{{this.activities[4].name}}</span>
               <div class="bottom clearfix">
-                <el-button type="text" class="button">操作按钮</el-button>
               </div>
             </div>
         </el-card>
@@ -240,12 +235,73 @@
 </template>
 
 <script>
+import {get_all_activity} from "../api/api";
+
 export default {
   name: "home",
   data() {
     return {
-      msg: "这里是主页"
-    };
+      msg: "这里是主页",
+      activities:[{
+        beginTime: "string",
+        description: 'string',
+        lasting: 'string',
+        name: '正在加载中',
+        ownerId: 'string',
+        picUrl: 'string',
+        place: 'string',
+        type: 'string'
+      },{
+        beginTime: "string",
+        description: 'string',
+        lasting: 'string',
+        name: '正在加载中',
+        ownerId: 'string',
+        picUrl: 'string',
+        place: 'string',
+        type: 'string'
+      },{
+        beginTime: "string",
+        description: 'string',
+        lasting: 'string',
+        name: '正在加载中',
+        ownerId: 'string',
+        picUrl: 'string',
+        place: 'string',
+        type: 'string'
+      },{
+        beginTime: "string",
+        description: 'string',
+        lasting: 'string',
+        name: '正在加载中',
+        ownerId: 'string',
+        picUrl: 'string',
+        place: 'string',
+        type: 'string'
+      },{
+        beginTime: "string",
+        description: 'string',
+        lasting: 'string',
+        name: '正在加载中',
+        ownerId: 'string',
+        picUrl: 'string',
+        place: 'string',
+        type: 'string'
+      }],
+    }
+  },
+  methods:{
+    get_all_activities(){
+      get_all_activity()
+        .then(res => {
+          this.activities = res.data.slice(0,4)
+        }).catch( e => {
+        console.log(e.response.data)
+      })
+    }
+  },
+  mounted(){
+    this.get_all_activities()
   }
 };
 </script>
