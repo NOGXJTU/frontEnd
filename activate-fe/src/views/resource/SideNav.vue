@@ -1,7 +1,7 @@
 <template>
   <div class="side-nav">
     <el-menu class="el-menu-vertical-demo">
-      <el-menu-item v-for="(i,index) in msg" :key="index" @click="$router.push({path: '/resource/details', query: {msgChose:msg[index].msgChose,msgTitle:msg[index].msgTitle,msgTime:msg[index].msgTime,msgPeople:msg[index].msgPeople,msgInto:msg[index].msgInto}})" :index="''+index">
+      <el-menu-item v-for="(i,index) in msg" :key="index" @click="$router.push({path: '/resource/details', query: {msgName:msg[index].name,msgChose:msg[index].msgChose,msgTitle:msg[index].msgTitle,msgTime:msg[index].msgTime,msgPeople:msg[index].msgPeople,msgInto:msg[index].msgInto}})" :index="''+index">
         <i :class='msg[index].icon'></i>
         <span  class="side-title" slot="title">{{msg[index].name}}</span>
       </el-menu-item>
@@ -70,7 +70,7 @@ export default {
           msgInto: "带学介绍"
         },
         {
-          name: "知识点概括",
+          name: "带学学科介绍",
           icon: "el-icon-star-off",
           msgChose: "请选择年级与科目",
           msgTitle: "带学学科介绍",

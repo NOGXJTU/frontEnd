@@ -248,3 +248,18 @@ export const school_subject_intro =  params => {
 export const get_all_activity = params => {
   return axios.get('/activity/activity')
 }
+
+//获取加入组织的申请
+export const get_all_organization_join = params => {
+  return axios.post('organization/foundation/getAllAppWithStatus',params)
+}
+//同意
+export const agree_join_organization = params => {
+  return axios.post('/organization/join/agree',params)
+}
+//拒绝
+export const refuse_join_organization = params => {
+  return axios.post('/organization/join/refuse',params)
+}
+
+//获取

@@ -20,8 +20,34 @@
 </template>
 
 <script>
+  import 'video.js/dist/video-js.css'
+  import { video_list } from "@/api/api";
+
+  import { videoPlayer } from 'vue-video-player'
+
 export default {
-    name: "VideoList"
+  name: "VideoList",
+  data() {
+    return {
+      videos:[],
+    }
+  },
+  components: {
+    videoPlayer
+  },
+  methods:{
+    get_all_videos(){
+      video_list()
+        .then(res => {
+          this.videos = res.data
+        }).catch( e => {
+        console.log(e.response.data)
+      })
+    }
+  },
+  mounted(){
+    this.get_all_videos()
+  }
 }
 </script>
 

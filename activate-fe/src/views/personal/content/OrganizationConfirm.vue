@@ -1,15 +1,15 @@
 <template>
   <div class="organization-confirm">
-    <dt v-for="(item, index) in 5" :key="index">
+    <dt v-for="(item, index) in msg" :key="index">
       <div class="activity-item">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span>组织申请人</span>
+            <span>{{msg[index].name}}</span>
             <el-button style="float: right; padding: 10px 0;;" type="text" >拒绝</el-button>
             <el-button style="float: right; padding: 10px 0" type="text" >同意</el-button>
           </div>
           <div>
-            申请描述
+            {{msg[index].description}}
           </div>
         </el-card>
       </div>
@@ -18,8 +18,30 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { get_all_organization_join } from '@/api/api'
+import { agree_join_organization } from '@/api/api'
+import { refuse_join_organization } from '@/api/api'
+
 export default {
-  name: "OrganizationConfirm"
+  name: "OrganizationConfirm",
+  data () {
+    return {
+      form: {},
+      msg: []
+    }
+  },
+  computed: {
+    ...mapState(['userInfo'])
+  },
+  mounted() {
+    this.form = Object.assign({}, this.userInfo)
+    get_all_organization_join({id:this.userInfo.organization})
+      .then(res => {
+        this.msg = res.data
+        }
+      )
+  }
 }
 </script>
 

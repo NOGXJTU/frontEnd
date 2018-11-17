@@ -32,7 +32,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { modify_user_info } from '@/api/api.js'
+import { modify_user_info } from '@/api/api'
 
 export default {
   name: 'Basic',

@@ -23,6 +23,7 @@
       <el-button type="primary" @click="componentName='organization_members'">组织成员</el-button>
       <component :is="componentName" :organization="organization"></component>
     </div>
+    <div style="clear: both"></div>
   </div>
 </template>
 
