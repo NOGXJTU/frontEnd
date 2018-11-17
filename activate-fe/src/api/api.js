@@ -193,7 +193,7 @@ export const organization_register = params => {
 
 //根据ID获取组织信息
 export const get_organization_by_Id = params => {
-  return axios.get('/organization/{id}')
+  return axios.get('/organization/'+params.organizationId,params)
 }
 
 //活动申请请求发送
