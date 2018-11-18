@@ -1,10 +1,10 @@
 import { expect } from "chai";
-import { shallowMount, createLocalVue } from "@vue/test-utils";
-import Home from "@/components/home.vue";
+import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
+import Home from "@/views/index/index.vue";
 import "../util";
 
-describe.skip("home.vue", () => {
-  const wrapper = shallowMount(Home);
+describe("home.vue", () => {
+  const wrapper = mount(Home);
 
   it("显示banner", () => {
     expect(wrapper.contains(".banner")).to.be.ok;
@@ -32,14 +32,5 @@ describe.skip("home.vue", () => {
   it.skip("显示地图标题", () => {
     const mapTitle = wrapper.find(".map-caption-title");
     expect(mapTitle.text()).to.include("应该要什么标题");
-  });
-
-  it("显示口号", () => {
-    const footer = wrapper.findAll(".footer-content .fl-content");
-    const word0 = footer.at(0);
-    expect(word0.text()).to.include("一");
-
-    const word1 = footer.at(6);
-    expect(word1.text()).to.include("春");
   });
 });
