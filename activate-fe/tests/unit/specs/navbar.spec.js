@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/common/Navbar.vue";
-// import Navbar from "@/components/navbar.vue";
 import Vuex from "vuex";
+import sinon from "sinon";
 import VueRouter from "vue-router";
 import "../util";
 
@@ -23,7 +23,7 @@ function wrapperInstant(isLogged) {
   });
 }
 
-describe.skip("navbar.vue", () => {
+describe("导航栏", () => {
   it("显示主页", () => {
     const wrapper = wrapperInstant(false);
     expect(wrapper.find('[index="home"]').exists()).to.be.ok;
@@ -39,7 +39,7 @@ describe.skip("navbar.vue", () => {
     expect(wrapper.find('[index="resource"]').exists()).to.be.ok;
   });
 
-  it("显示组织", () => {
+  it.skip("显示组织", () => {
     const wrapper = wrapperInstant(false);
     expect(wrapper.find('[index="organization"]').exists()).to.be.ok;
   });
@@ -69,5 +69,15 @@ describe.skip("navbar.vue", () => {
     const wrapper = wrapperInstant(true);
     expect(wrapper.find('[index="log"]').exists()).to.not.be.ok;
     expect(wrapper.find('[index="logout"]').exists()).to.be.ok;
+  });
+
+  it("点击登出后显示登陆/注册按钮", () => {
+    /**
+     * 硬核测试，不知道怎么处理
+     * 方法里面各种store操作，先直接改store.state
+     */
+    const wrapper = wrapperInstant(true);
+    wrapper.vm.$store.state.isLogged = false;
+    expect(wrapper.find('[index="log"]').exists()).to.be.ok;
   });
 });
