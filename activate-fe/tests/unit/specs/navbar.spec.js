@@ -2,7 +2,6 @@ import { expect } from "chai";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Navbar from "@/common/Navbar.vue";
 import Vuex from "vuex";
-import sinon from "sinon";
 import VueRouter from "vue-router";
 import "../util";
 
