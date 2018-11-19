@@ -63,6 +63,9 @@
               <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
             </el-upload>
           </el-form-item>
+          <el-form-item label="信息确认">
+            <el-button type="primary" @click="get_url">确认上传图片</el-button>
+          </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="handle_register">提交申请</el-button>
           </el-form-item>
@@ -111,7 +114,7 @@
           lasting:'',
           place:'',
           description:'',
-          picUrl:this.fileList[0].url,
+          picUrl:'',
         },
 
       }
@@ -160,6 +163,9 @@
           }
         )
       },
+      get_url(){
+        this.form.picUrl = this.fileList[0].url
+      }
     },
 
   }
