@@ -18,8 +18,25 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: "ActivityConfirm"
+  name: "ActivityConfirm",
+  data () {
+    return {
+      form: {},
+      infos: {}
+    }
+  },
+  computed: {
+    ...mapState(['userInfo'])
+  },
+  mounted() {
+    console.log(this.userInfo)
+    this.form = Object.assign({}, this.userInfo)
+
+  }
+
 }
 </script>
 

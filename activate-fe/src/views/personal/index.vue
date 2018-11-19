@@ -9,11 +9,11 @@
         <i class="el-icon-document"></i>
         <span slot="title">我的活动</span>
       </el-menu-item>
-      <el-menu-item index="activity-confirm">
+      <el-menu-item index="activity-confirm" v-show="userPower">
         <i class="el-icon-document"></i>
         <span slot="title">活动成员审批</span>
       </el-menu-item>
-      <el-menu-item index="organization-confirm">
+      <el-menu-item index="organization-confirm" v-show="userPower">
         <i class="el-icon-document"></i>
         <span slot="title">组织成员审批</span>
       </el-menu-item>
@@ -30,12 +30,14 @@ import Basic from './content/Basic'
 import ActivityInfo from './content/ActivityInfo'
 import ActivityConfirm from './content/ActivityConfirm'
 import OrganizationConfirm from './content/OrganizationConfirm'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Personal',
   data() {
     return {
-      componentName: 'Basic'
+      componentName: 'Basic',
+      userPower: false
     }
   },
   methods: {
@@ -62,6 +64,12 @@ export default {
     ActivityInfo,
     ActivityConfirm,
     OrganizationConfirm
+  },
+  computed: {
+  ...mapState(['userInfo'])
+  },
+  mounted() {
+    this.userPower = this.userInfo.superUser
   }
 }
 </script>

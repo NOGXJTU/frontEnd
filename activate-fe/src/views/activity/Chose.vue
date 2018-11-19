@@ -2,7 +2,7 @@
   <div class="activity-chose">
     <p class="status-chooser">
       <el-button type="primary">活动类型：</el-button>
-      <el-button>文化课</el-button>
+      <el-button @click="sendChose">文化课</el-button>
       <el-button>兴趣课</el-button>
       <el-button>思想沙龙</el-button>
       <el-button>公益晚会</el-button>
@@ -19,7 +19,12 @@
 
 <script>
 export default {
-    name: "chose"
+  name: "chose",
+  methods: {
+    sendChose: function () {
+      this.$emit("choseEvent",'aaa')
+    }
+  }
 }
 </script>
 

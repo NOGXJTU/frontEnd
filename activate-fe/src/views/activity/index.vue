@@ -1,6 +1,6 @@
 <template>
   <div class="active-view">
-    <chose></chose>
+    <!--<Chose></Chose>-->
     <Content></Content>
     <div style="clear: both"></div>
   </div>
