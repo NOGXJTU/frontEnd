@@ -4,7 +4,7 @@ import Regulation from "@/views/regulation/index.vue";
 import "../util";
 import sinon from "sinon";
 
-describe.only("章程", () => {
+describe("章程", () => {
   const wrapper = shallowMount(Regulation);
   it("默认显示纲要", () => {
     const activeItem = wrapper.find(".active");
