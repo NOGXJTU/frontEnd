@@ -31,6 +31,9 @@
           <el-form-item label="活动完结总结">
             <el-input type="textarea":rows="5" v-model="form.comment"></el-input>
           </el-form-item>
+          <el-form-item label="信息确认">
+            <el-button type="primary"  @click="get_picUrl">确认</el-button>
+          </el-form-item>
           <el-form-item>
             <el-button type="primary"  @click="handle_register">提交申请</el-button>
           </el-form-item>
@@ -54,7 +57,7 @@
         form:{
           activityId:'',
           comment:'',
-          pictures:this.fileList[0].url,
+          pictures:'',
         },
       }
     },
@@ -70,6 +73,9 @@
       },
       beforeRemove(file, fileList) {
         return this.$confirm(`确定移除 ${ file.name }？`);
+      },
+      get_picUrl(){
+        this.form.pictures = this.fileList[0].url
       },
       handle_register() {
         this.$refs['form'].validate(
