@@ -136,15 +136,15 @@ export default new Router({
       component: Organization
     },
   {
-    path: '/organization/:organizationId',
-    name: 'OrganizationInfo',
-    component: OrganizationInfo
-  },
-  {
     path: '/organization/organizationRegister',
     name: 'OrganizationRegister',
     component: OrganizationRegister
   },
+    {
+      path: '/organization/:organizationId',
+      name: 'OrganizationInfo',
+      component: OrganizationInfo
+    },
   // {
   //   path: '/organization/organizationList',
   //   name: 'organizationList',

@@ -3,7 +3,7 @@
     <div class="organization-info-style">
       <el-card>
         <el-container >
-          <el-aside width="300px">
+          <el-aside width="300px" style="overflow: hidden">
             <div class="img-size"><img src="https://dummyimage.com/600x400/000/fff" height="300px" width="300px"></div>
           </el-aside>
           <el-main class="organization-info-right">

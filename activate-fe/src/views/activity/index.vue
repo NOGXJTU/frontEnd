@@ -30,4 +30,9 @@ export default {
 .activity-news {
   float: right;
 }
+.activity-button{
+  float: right;
+  /*padding-top: 2%;*/
+  padding-right: 10%;
+}
 </style>

@@ -160,7 +160,7 @@
 
 <style scoped>
   .organization-register-card{
-    padding-left: 18%;
+    padding-left: 10%;
     width: 80%;
   }
 </style>

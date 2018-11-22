@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // config axios
-axios.defaults.baseURL = 'http://suilin.top:8088'
+axios.defaults.baseURL = 'http://suilin.top:4399'
 axios.defaults.withCredentials = true
 axios.defaults.headers = {
   'Content-Type': 'application/json'
@@ -182,9 +182,9 @@ export const video_list = params => {
 }
 
 //获取所有组织信息
-export const get_all_organization = params => {
-  return axios.get('/organization/getAllMsg')
-}
+// export const get_all_organization = params => {
+//   return axios.get('/organization/getAllMsg')
+// }
 
 //组织注册表单提交
 export const organization_register = params => {
@@ -198,12 +198,12 @@ export const get_organization_by_Id = params => {
 
 //活动申请请求发送
 export const activity_apply = params => {
-  return axios.post('/activity/apply')
+  return axios.post('/activity/apply', params)
 }
 
 //活动结束上传资料
 export const activity_finished_upload = params => {
-  return axios.post('/activity/finished/upload')
+  return axios.post('/activity/finished/upload',params)
 }
 
 // 资源
@@ -263,3 +263,6 @@ export const refuse_join_organization = params => {
 }
 
 //获取
+export const get_all_organization = params => {
+  return axios.get('/organization/getAllMsg')
+}

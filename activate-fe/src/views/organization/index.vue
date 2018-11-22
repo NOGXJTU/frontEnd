@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="organization-button">
+      <el-button type="primary"  @click="$router.push('/organization/organizationRegister')">组织申请</el-button>
+    </div>
     <div class="activity organization-list" >
       <div class="organization-one" v-for="organization in organizations" :key="organization.id">
         <div @click="$router.push('/organization/'+organization.id)">
@@ -75,5 +78,10 @@
   .word-style{
     padding-left: 3%;
     padding-bottom: 3%;
+  }
+  .organization-button{
+    float: right;
+    /*padding-top: 2%;*/
+    padding-right: 10%;
   }
 </style>

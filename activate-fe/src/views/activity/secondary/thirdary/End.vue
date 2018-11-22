@@ -57,7 +57,7 @@
         form:{
           activityId:'',
           comment:'',
-          pictures:'',
+          pictures:[],
         },
       }
     },
@@ -75,7 +75,9 @@
         return this.$confirm(`确定移除 ${ file.name }？`);
       },
       get_picUrl(){
-        this.form.pictures = this.fileList[0].url
+        this.form.pictures.push(this.fileList[0].url)
+        console.log("......."+this.fileList[0].url)
+        console.log("......."+this.form.pictures)
       },
       handle_register() {
         this.$refs['form'].validate(
@@ -115,7 +117,7 @@
 <style scoped>
   .activity-end-card{
     width: 80%;
-    padding-left: 20%;
+    padding-left: 10%;
     padding-top: 3%;
   }
 </style>

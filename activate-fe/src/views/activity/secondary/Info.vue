@@ -21,6 +21,7 @@
             </div>
             <div class="activity-motion">
               <el-button type="primary" @click="get_nowLogin_user">报名参与</el-button>
+              <el-button type="primary" @click="$router.push('/activityEnd')">活动完结</el-button>
               <!--活动申请表单-->
               <el-dialog title="活动申请" :visible.sync="activityApplyDialog">
                 <el-form :model="form">
@@ -146,7 +147,7 @@
               showClose: true
             })
           })
-      }
+      },
     },
 
     components: {

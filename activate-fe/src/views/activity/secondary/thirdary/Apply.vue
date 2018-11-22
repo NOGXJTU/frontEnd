@@ -14,11 +14,11 @@
             <el-input type="text" v-model="form.name" placeholder=""></el-input>
           </el-form-item>
           <el-form-item label="申请组织">
-            <el-input type="text" v-model="form.organizationId" placeholder=""></el-input>
+            <el-input type="text" v-model="form.organizationName" placeholder=""></el-input>
           </el-form-item>
           <el-form-item label="活动队长">
             <!--先放一放，问题很大-->
-            <el-input type="text" v-model="form.leaderId" placeholder=""></el-input>
+            <el-input type="text" v-model="form.ownerId" placeholder=""></el-input>
           </el-form-item>
           <el-form-item label="活动类型">
             <el-select v-model="value" placeholder="请选择">
@@ -43,10 +43,13 @@
             <el-input type="text" v-model="form.lasting" placeholder="请按格式输入，例：'15天'"></el-input>
           </el-form-item>
           <el-form-item label="所在地点">
-            <el-input ></el-input>
+            <el-input type="text" v-model="form.place" placeholder=""></el-input>
           </el-form-item>
           <el-form-item label="活动简介">
             <el-input type="textarea":rows="3" v-model="form.description"></el-input>
+          </el-form-item>
+          <el-form-item label="活动申请简介">
+            <el-input type="textarea":rows="3" v-model="form.applyDescription"></el-input>
           </el-form-item>
           <el-form-item label="活动起始图片">
             <el-upload
@@ -83,19 +86,19 @@
     data(){
       return {
         options: [{
-          value: '0',
+          value: '文化课',
           label: '文化课'
         }, {
-          value: '1',
+          value: '兴趣课',
           label: '兴趣课'
         }, {
-          value: '2',
+          value: '思想沙龙',
           label: '思想沙龙'
         }, {
-          value: '3',
+          value: '公益晚会',
           label: '公益晚会'
         }, {
-          value: '4',
+          value: '其他',
           label: '其他'
         }],
         value: '',
@@ -107,13 +110,14 @@
         ],
         form:{
           name:'',
-          organizationId:'',
+          organizationName:'',
           ownerId:'',
-          type:this.value,
+          type:'',
           beginTime:'',
           lasting:'',
           place:'',
           description:'',
+          applyDescription:'',
           picUrl:'',
         },
 
@@ -134,7 +138,7 @@
       },
       handle_register() {
         this.$refs['form'].validate(
-          (valid) => {
+              (valid) => {
             if (valid) {
               activity_apply(this.form)
                 .then(res => {
@@ -146,6 +150,7 @@
                   })
                   this.$router.push('/activity')
                 }).catch(e => {
+                console.log(this.form),
                 // send fail message
                 this.$message({
                   message: '申请失败',
@@ -164,7 +169,11 @@
         )
       },
       get_url(){
+        console.log(this.fileList[0].url)
         this.form.picUrl = this.fileList[0].url
+        this.form.type = this.value
+        console.log(this.value)
+
       }
     },
 
@@ -174,6 +183,6 @@
 <style scoped>
   .activity-apply-card{
     width: 80%;
-    padding-left: 20%;
+    padding-left: 10%;
   }
 </style>
