@@ -244,14 +244,21 @@ export const school_subject_intro =  params => {
 
 
 // 获取所有活动
-
 export const get_all_activity = params => {
   return axios.get('/activity/activity')
 }
+//根据id批量获取
+export const get_activity_by_many_id = params => {
+  return axios.post('/activity/batch',params)
+}
+//主动退出参数
+export const quit_acitvity = params => {
+  return axios.post('/activity/quit',params)
+}
 
 //获取加入组织的申请
-export const get_all_organization_join = params => {
-  return axios.post('organization/foundation/getAllAppWithStatus',params)
+export const get_all_organization_apply_by_id = params => {
+  return axios.get('/organization/apply/getAllAppWithId/',params)
 }
 //同意
 export const agree_join_organization = params => {
@@ -262,7 +269,21 @@ export const refuse_join_organization = params => {
   return axios.post('/organization/join/refuse',params)
 }
 
+//<<<<<<< HEAD
 //获取
-export const get_all_organization = params => {
-  return axios.get('/organization/getAllMsg')
+//export const get_all_organization = params => {
+//  return axios.get('/organization/getAllMsg')
+=======
+//获取加入活动的申请
+export const get_all_activity_apply_by_id = params => {
+  return axios.post('/application/getAllApp',params)
+}
+//同意
+export const agree_join_activity = params => {
+  return axios.post('/application/confirm',params)
+}
+//拒绝
+export const refuse_join_activity = params => {
+  return axios.post('/application/refuse',params)
+//>>>>>>> 2a497fe7dfb3c2c87c0ee677e84b5c27b74514e0
 }
