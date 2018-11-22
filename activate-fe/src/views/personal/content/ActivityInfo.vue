@@ -13,16 +13,36 @@
 
 <script>
 import { mapState } from 'vuex'
-import { get_acticity_by_id } from '@/api/api'
-
+import { get_activity_by_many_id } from '@/api/api'
+import { quit_acitvity } from '@/api/api'
 export default {
   name: 'ActivityInfo',
   data() {
     return {
       form: {activitiesId:''},
-      infos: [[]]
+      infos: get_acticity_by_id()
     }
   },
+  // handle_quit(id) {
+  //   this.$confirm('此操作将使您退出该活动, 是否继续?', '提示', {
+  //     confirmButtonText: '确定',
+  //     cancelButtonText: '取消',
+  //     type: 'warning'
+  //   }).then(() => {
+  //     quit_acitvity({activityId:this.userInfo.activityId[id]})
+  //   }).catch(() => {
+  //     this.$message({
+  //       type: 'info',
+  //       message: '已取消'
+  //     })
+  //   })
+  // },
+  // get_activity_by_id() {
+  //   get_activity_by_many_id({activityId:this.userInfo.activityId})
+  //     .then(res => {
+  //       this.info = Object.assign({},res.data)
+  //     })
+  // }
   methods: {
     handle_quit(item) {
       this.$confirm('此操作将使您退出该活动, 是否继续?', '提示', {
@@ -41,13 +61,8 @@ export default {
         })
       })
     },
-    async funcget_acticity_by_id() {
-      for ( let aid in this.form.activitiesId ) {
-        await get_acticity_by_id({activityId:this.form.activitiesId[aid]})
-          .then(res => {
-            this.infos[aid] = res.data
-          })
-      }
+    get_acticity_by_id() {
+      get_activity_by_many_id({activityId:this.userInfo.activityId})
     }
   },
   computed: {
@@ -55,10 +70,6 @@ export default {
   },
   mounted() {
     this.form = Object.assign({}, this.userInfo)
-    // console.log(this.form)
-    // console.log(this.form.activitiesId)
-    this.funcget_acticity_by_id()
-    console.log(this.infos)
   }
 }
 </script>
